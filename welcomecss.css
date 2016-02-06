@@ -1,0 +1,895 @@
+div#photostrip {
+    width: 100%;
+    height: 120px;
+	margin-top: 50px;
+	position: fixed;
+    left: 0px;
+}
+div#navstrip{
+	width: 100%;
+    height: 100px;
+	position: fixed;
+    left: 0px;
+	opacity:0.8;
+	top: 60px;
+}
+img#welcomelogo {
+    margin-left: 100px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+	top: -20px;
+}
+img#homelogo:hover{
+	transition: all .5s ease-in-out;
+}
+img#homelogo{
+    margin-left: 100px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+	opacity:1;
+	top: 20px;
+}
+div#unamepcode{
+	position:fixed;
+	width: 100%;
+    height: 100px;
+	bottom:0;
+	left:0;
+	background-color: #202020;
+}
+.divs{
+	background-color: #0A0A0A;
+	width: 100%;
+	position: fixed;
+    left: 0px;
+}
+div#footer {
+    position: fixed;
+    bottom: 0px;
+    height: 50px;
+    width: 100%;
+	left: 0;
+	background-color: black;
+}
+div#inputfields {
+    padding-top: 20px;
+}
+.textfield{
+	margin-left:30px;
+	background-color:#DCDCDC;
+	color:black;
+	float:right;
+	height:24px;
+	position: relative;
+    right: 20px;
+	bottom: 8px;
+	border: none;
+	font-family:"Lucida Console", Sans-serif;
+	font-size:16px;
+}
+.textfonts{
+	float:right;
+	margin-left: 20px;
+	margin-right: -23px;
+	color:red;
+	position: relative;
+    right: 16px;
+	bottom: 3px;
+	font-family:"Lucida Console", Sans-serif;
+}
+#signup{
+	color:red;
+	margin-right: 140px;
+	bottom: 20px;
+}
+#welcomeagain{
+	color:snow;
+	right: 10px;
+	bottom:15px;
+}
+.loginbutton{
+	color:red;
+	margin-right: 20px;
+	background-color: transparent;
+    border: none;
+	width:100px;
+	height:30px;
+	font-weight:bold;
+	float:right;
+	opacity:1;
+	font-family:"Lucida Console", Sans-serif;
+	font-size:16px;
+	cursor:pointer;
+	margin-top:-10px;
+}
+.submitbutton{
+	background-color: transparent;
+    border: none;
+	width:100px;
+	height:30px;
+	font-weight:bold;
+	float:right;
+	position: absolute;
+	opacity:1;
+	font-family:"Lucida Console", Sans-serif;
+	font-size:16px;
+	cursor:pointer;
+}
+#signup:hover, .loginbutton:hover{
+	background:#DCDCDC;
+	color:black;
+	opacity:1;
+}
+#welcomeagain:hover{
+	background:red;
+	color:black;
+	opacity:1;
+}
+.navtabs:hover{
+	background:red;
+	opacity:0.7;
+	color:snow;
+	transition: all .2s ease-in-out;
+}
+.navtabs{
+	width:150px;
+	height:100px;
+	background-color:transparent;
+	position: fixed;
+    left: 300px;
+	border:none;
+	color:white;
+	opacity:1;
+	font-family:"Lucida Console", Sans-serif;
+	font-size:20px;
+	cursor:pointer;
+}
+input#members {
+    position: fixed;
+    left: 460px;
+}
+input#officers {
+    position: fixed;
+    left: 620px;
+}
+input#about{
+    position: fixed;
+    left: 780px;
+}
+input#gallery{
+    position: fixed;
+    left: 460px;
+}
+.walls{
+	width:870px;
+	height:415px;
+	position: fixed;
+    top: 210px;
+    background-color: black;
+	opacity:0.9;
+    left: 110px;
+}
+.walls:hover{
+	overflow: scroll;
+	transition: all .4s ease-in-out;
+}
+img#logosignup {
+    position: fixed;
+    top: 120px;
+    left: 170px;
+    width: 360px;
+    height: 360px;
+}
+.signupfield {
+    position: fixed;
+    top: 100px;
+    left: 850px;
+    width: 470px;
+    height: 430px;
+    background-color:#000;
+	opacity: 0.7;
+	border:none;
+}
+body {
+    overflow-x: scroll;
+}
+.legend{
+	background-color: black;
+	font-weight:bold;
+	color:#FFF;
+	font-size:20px;
+}
+.text{
+	color:red;
+	font-weight:bold;
+	font-size: 16px;
+	position: absolute;
+	right: 310px;	
+	font-family:"Lucida Console", Sans-serif;
+	opacity:1;
+}
+.textinfo{
+	color:snow;
+	font-weight:bold;
+	font-size: 16px;
+	font-family:"Lucida Console", Sans-serif;
+	opacity:1;
+	position: absolute;
+    right: 20px;
+}
+.texttitle{
+	color:red;
+	font-weight:bold;
+	font-size: 16px;
+	font-family:"Lucida Console", Sans-serif;
+	opacity:10px;
+}
+.inputtextfield {
+	margin-left:30px;
+	font-weight:bold;
+	background-color:snow;
+	color:#000;
+	position: absolute;
+    right: 80px;
+	height: 20px;
+	font-family:"Lucida Console", Sans-serif;
+	border:none;
+	width:210px;
+}
+input#signup, input#accept {
+    position: absolute;
+    bottom: 15px;
+    right: -25px;
+	height:30px;
+	opacity:1;
+}
+div#popupstrip {
+    width: 100%;
+    height: 50px;
+}
+.videofilms{
+	position:relative;
+	width:200px;
+	height:140px;
+	left:40px;
+	top:20px;
+	background-color:snow;
+}
+#confirminfo{
+    position: fixed;
+    top: 140px;
+    left: 350px;
+	height: 360px;
+}
+input#goback {
+    position: absolute;
+    right: 80px;
+    bottom: 5px;
+    height: 30px;
+}
+.images{
+	position:relative;
+	left:50px;
+	width:200px;
+	height:150px;
+}
+.images:hover{
+	transition: all .4s ease-in-out;
+	width:420px;
+	height:300px;
+}
+#paintingA, #sketchA, #digitalartA{
+	top:20px;
+}
+input#goback:hover{
+	background:red;
+	color:black;
+	opacity:1;
+}
+input#accept:hover{
+	background:white;
+	color:black;
+	opacity:1;
+}
+.slideshow{
+	width:240px;
+	height:180px;
+    position: absolute;
+    top: -10px;
+    left: 250px;
+}
+.imageslideshowA{
+	width:200px;
+	height:120px;
+}
+.imageslideshowB{
+	position: absolute;
+    top: -10px;
+    left: 450px;
+	width:200px;
+	height:120px;
+}
+.imageslideshowC{
+	position: absolute;
+    top: -10px;
+    left: 650px;
+	width:200px;
+	height:120px;
+}
+.imageslideshowD{
+	position: absolute;
+    top: -10px;
+    left: 650px;
+	width:200px;
+	height:120px;
+}
+.imageslideshowE{
+	position: absolute;
+    top: -10px;
+    left: 650px;
+	width:200px;
+	height:120px;
+}
+.fadeinB{
+    left: 210px;
+}
+.fadeinC{
+    left: 420px;
+}
+.fadeinD{
+    left: 630px;
+}
+.fadeinE{
+    left: 840px;
+}
+img#welcomewallpaper {
+    position: fixed;
+    top: 198px;
+    width: 100%;
+    left: 0;
+}
+#footerA{
+	position: fixed;
+    bottom: 0px;
+    height: 50px;
+    width: 100%;
+	left: 0;
+	background-color: black;
+}
+.footertextA{
+	color:white;
+	font-family:"Copperplate Gothic";
+	float:right;
+	margin-top:8px;
+	margin-right:10px;
+}
+.footertextB{
+	color:red;
+	font-family:"Copperplate Gothic";
+	position:fixed;
+	bottom:8px;
+	right:0px;
+	margin-top:5px;
+	margin-right:10px;	
+}
+.date{
+	color:red;
+	font-family:"Copperplate Gothic";	
+	float:right;
+	margin-top:5px;
+	margin-right:2px;
+}
+.dateA{
+	color:red;
+	font-family:"Copperplate Gothic";	
+	float:right;
+	margin-top:10px;
+	margin-right:10px;
+}
+.time{
+	color:white;
+	font-family:"Copperplate Gothic";
+	position:fixed;
+	top:25px;
+	right:0px;
+	margin-top:5px;
+	margin-right:10px;	
+}
+.datetime{
+	position:fixed;
+	width:320px;
+	height:60px;
+	background-color:black;
+	top:0;
+	right:0;
+}
+.datetimeA{
+	position:fixed;
+	width:100%;
+	height:60px;
+	background-color:black;
+	top:0;
+	right:0;
+}
+.sidefield{
+	position:fixed;
+	width:320px;
+	height:500px;
+	background-color:black;
+	top:158px;
+	right:0;
+}
+.hrline{
+	width:100%;
+	color:white;
+	position:fixed;
+	bottom:42px;
+	height:0.1px;
+}
+.sociallink{
+	width:45px;
+	height:45px;
+	position:fixed;
+	bottom:3px;
+	left:110px;
+	background-color:transparent;
+	border:none;
+	cursor:pointer;
+}
+.dropdownselect{
+	width: 210px;
+	font-size: 16px;
+	line-height: 1;
+	border: 0;
+	border-radius: 0;
+	height: 20px;
+	background-color:snow;
+	color:#000;
+	position: absolute;
+    right: 80px;
+	font-family:"Lucida Console", Sans-serif;
+	width: 210px;
+	overflow: hidden;
+	cursor:pointer;
+}
+.dropdown {
+    position: absolute;
+    top: 0px;
+    left: 400px;
+	z-index: 1;
+}
+.dropdown .dropdown-menu {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    display: none;
+    margin: 0;
+    list-style: none;
+    width: 180px;
+    padding: 0;
+	z-index: 1;
+	opacity:1;
+	transition: all .4s ease-in-out;
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+	z-index: 1;
+	-webkit-transition: all 1s ease;
+}
+.dropdown button {
+    background: black;
+    color: #FFFFFF;
+    border: none;
+    margin: 0;
+    font-size: 20px;
+	position: absolute;
+    left: 60px;
+	font-family: "Lucida Console", Sans-serif;
+	 z-index: 1;
+	 opacity:1;
+	 transition: all .4s ease-in-out;
+}
+.dropdown a {
+    display: block;
+    padding: 0.2em 0.8em;
+    text-decoration: none;
+    background: snow;
+    color: black;
+	font-family: "Lucida Console", Sans-serif;
+	font-size: 18px;
+	 z-index: 1;
+	 opacity:1;
+}
+
+/** List Item Hover Styles **/
+.dropdown a:hover {
+    background: red;
+	z-index: 1;
+	color:snow;
+	transition: all .2s ease-in-out;
+}
+div#homewall {
+    z-index: -1;
+}
+.sideslideshow {
+    position: absolute;
+    top: 52px;
+}
+#twitter{
+	left: 170px;
+}
+#instagram{
+	left:230px;
+	height:45px;
+	width:45px;
+	position:fixed;
+	bottom:2px;
+}
+input#home:selected{
+	background:snow;
+}
+#facebook{
+	width:55px;
+	height:55px;
+	bottom: -2px;
+}
+.orginfotextA{
+	color:red;
+	font-family: "Lucida Console", Sans-serif;
+	font-size: 18px;
+	opacity:1;
+    left:80px;
+}
+#foundation{
+	position:relative;
+	top:-40px;
+}
+#founded{
+	top:-40px;
+}
+.orginfotextB{
+	color:snow;
+	font-family: "Lucida Console", Sans-serif;
+	font-size: 16px;
+	opacity:1;
+	position:relative;
+	float:right;
+	right:-150px;
+}
+#address{
+	position:relative;
+	top:-25px;
+}
+#ue{
+	top:-25px;
+}
+#descriptionA{
+	position:relative;
+	top:-30px;
+}
+#descriptionB{
+	top:-5px;
+}
+#descriptionC{
+	top:0px;
+}
+#descriptionD{
+	top:5px;
+}
+#descriptionE{
+	top:10px;
+}
+hr#hrlineaboutA {
+    position: relative;
+    top: 10px;
+}
+hr#hrlineaboutB {
+    position: relative;
+    top: 40px;
+}
+hr#hrlineaboutC {
+    position: relative;
+    top: 70px;
+}
+hr#hrlineaboutD{
+    position: relative;
+    top: 170px;
+}
+hr#hrlineaboutE{
+    position: relative;
+    top: 330px;
+}
+hr#hrlineaboutF{
+    position: relative;
+    top: 360px;
+}
+#mission{
+	position:relative;
+	top:-20px;
+}
+#statementA{
+	position: relative;
+    top: 30px;
+}
+#statementB{
+	position: relative;
+    top: 35px;
+}
+#statementC{
+	position: relative;
+    top: 40px;
+}
+#statementD{
+	position: relative;
+    top: 45px;
+}
+#statementE{
+	position: relative;
+    top: 50px;
+}
+#statementF{
+	position: relative;
+    top: 55px;
+}
+#statementG{
+	position: relative;
+    top: 60px;
+}
+#email{
+	position:relative;
+	top:70px;
+}
+#gmail{
+	position: relative;
+    top: 70px;
+}
+input[name=homebtn]:active, 
+input[name=officersbtn]:active, 
+input[name=aboutbtn]:active {
+	background-color: snow;
+}
+input[name=homebtnA]{
+	background-color:snow;
+	color:black;
+}
+input[name=homebtnA]:hover{
+	background-color:black;
+	color:snow;
+}
+input[name=officersbtnA]{
+	background-color:snow;
+	color:black;
+}
+input[name=officersbtnA]:hover{
+	background-color:black;
+	color:snow;
+}
+input[name=aboutbtnA]{
+	background-color:snow;
+	color:black;
+}
+input[name=aboutbtnA]:hover{
+	background-color:black;
+	color:snow;
+}
+button[name=gallerybtn]{
+	background-color:snow;
+	color:black;
+}
+button[name=gallerybtn]:hover{
+	background-color:black;
+	color:snow;
+}
+.messagefield{
+	width:380px;
+	height:250px;
+	position:fixed;
+	right:260px;
+	background:black;
+	top:170px;
+	opacity:0.8;
+}
+.loginmessage{
+	color:snow;
+	font-family: "Lucida Console", Sans-serif;
+	font-size: 16px;
+	opacity:1;
+	position:relative;
+	left:20px;
+	bottom:-150px;
+}
+#welcomeproceed{
+	position:fixed;
+	right:270px;
+	bottom:250px;
+	color:snow;
+}
+#welcomeproceed:hover{
+	background:red;
+	color:black;
+}
+#loginback{
+	position:fixed;
+	right:370px;
+	bottom:250px;
+	color:red;
+}
+#loginback:hover{
+	background:snow;
+	color:black;
+}
+.video{
+	opacity:0.8;
+	width:800px;
+	height:880;
+	position:fixed;
+	top:100px;
+	left:20px;
+}
+.videoA{
+	opacity:0.8;
+	width:800px;
+	height:880;
+	position:fixed;
+	top:-115px;
+	left:20px;
+}
+#flipA, #flipB, #flipC, #flipD,
+#flipE, #flipF, #flipG, #flipH ,
+#flipAdigiart, #flipAdigiartA{
+    padding: 5px;
+    text-align: center;
+    background-color: black;
+    border: none;
+	font-family: "Lucida Console", Sans-serif;
+	font-size: 16px;
+	cursor:pointer;
+	color:red;
+	height:30px;
+	margin-top: 5px;
+    height: 20px;
+}
+.writetext{
+	position:relative;
+	left:30px;
+	width:400px;
+	height:300px;
+	font-family: "Lucida Console", Sans-serif;
+	font-size: 16px;
+}
+#write{
+    position: fixed;
+    left: 940px;
+}
+#panelA, #panelB, #panelC, #panelD,
+#panelH , #panelAdigiart, #panelAdigiartA{
+    padding: 50px;
+    display: none;
+	background-color: snow;
+	border: none;
+	font-family: "Lucida Console", Sans-serif;
+	font-size: 16px;
+	width:770px;
+	height:150px;
+}
+#panelAdigiart{
+	height:1320px;
+}
+#panelE{
+	padding: 50px;
+    display: none;
+	background-color: snow;
+	border: none;
+	font-family: "Lucida Console", Sans-serif;
+	font-size: 16px;
+	width:770px;
+	height:600px;
+}
+ #panelF, #panelG{
+	padding: 50px;
+    display: none;
+	background-color: snow;
+	border: none;
+	font-family: "Lucida Console", Sans-serif;
+	font-size: 16px;
+	width:770px;
+	height:380px;
+}
+#flip{
+	padding: 5px;
+    text-align: center;
+    background-color: black;
+    border: none;
+	font-family: "Lucida Console", Sans-serif;
+	font-size: 16px;
+	cursor:pointer;
+	color:snow;
+	height:30px;
+	margin-top: 5px;
+    height: 20px;
+}
+.videoA{
+	position:relative;
+	top:20px;
+	left:40px;
+}
+.signupmessage{
+	position:fixed;
+	bottom:135px;
+	left:880px;
+	color:snow;
+	font-family: "Lucida Console", Sans-serif;
+	font-size: 16px;
+	z-index:1;
+}
+.videoAB{
+	position:relative;
+    top: -135px;
+	left:40px;
+	opacity:0.8;
+	width:800px;
+	height:880;
+}
+.videoABC{
+	position:relative;
+    top: 10px;
+	left:170px;
+	opacity:0.8;
+	width:1000px;
+	height:880;
+}	
+.avatar{
+	width:120px;
+	height:120px;
+	position:relative;
+	top:-10px;
+	left:-20px;
+	opacity:1;
+}
+.officersname{
+	font-family: "Lucida Console", Sans-serif;
+	font-size: 16px;
+	position:relative;
+	top:-130px;
+	left:0px;
+	color:black;
+	font-weight:bold;
+}
+.panelEE, .panelFF{
+	border-top:solid 1px #000;
+	padding: 50px;
+	font-family: "Lucida Console", Sans-serif;
+	font-size: 16px;
+	width:770px;
+	height:150px;
+	margin-top: -30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
