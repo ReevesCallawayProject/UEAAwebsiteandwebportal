@@ -55,7 +55,7 @@ echo "The time is " . date("h:i:sa");
 <input type="button" name="aboutbtn" class="navtabs" id="about" value="About UEAA" onclick="window.location='ueaaabout.php'"/>
 </td>
 <td>
-<input type="button" name="writebtn" class="navtabs" id="write" value="UEAA Portal" onclick="window.location='ueaawebportal.php'"/>
+<input type="button" name="writebtn" class="navtabs" id="write" value="My Profile" onclick="window.location='writeform.php'"/>
 </td>
 </div>
 </td>
@@ -67,32 +67,15 @@ echo "The time is " . date("h:i:sa");
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="description" content="Made with WOW Slider - Create beautiful, responsive image sliders in a few clicks. Awesome skins and animations. Wowslider" />
 	
-	<!-- Start WOWSlider.com HEAD section --> <!-- add to the <head> of your page -->
+	<!-- Start WOWSlider.com HEAD section --> <!-- add to the <head> of your page 
 	<link rel="stylesheet" type="text/css" href="engine1/style.css" />
 	<script type="text/javascript" src="engine1/jquery.js"></script>
-	<!-- End WOWSlider.com HEAD section -->
+	 End WOWSlider.com HEAD section -->
 
 </head>
 <body style="background-color:#d7d7d7;margin:auto">
 	
-	<!-- Start WOWSlider.com BODY section --> <!-- add to the <body> of your page -->
-	<div id="wowslider-container1">
-	<div class="ws_images"><ul>
-		<li><img src="data1/images/crafting.jpg" alt="crafting" title="Crafting" id="wows1_0"/></li>
-		<li><img src="data1/images/digitalart.jpg" alt="digitalart" title="Digital Art" id="wows1_1"/></li>
-		<li><img src="data1/images/film.jpg" alt="film" title="Film" id="wows1_2"/></li>
-		<li><img src="data1/images/literary.jpg" alt="literary" title="Literary" id="wows1_3"/></li>
-		<li><img src="data1/images/music.jpg" alt="music" title="Music" id="wows1_4"/></li>
-		<li><img src="data1/images/painting.jpg" alt="painting" title="Painting" id="wows1_5"/></li>
-		<li><a href="http://wowslider.com"><img src="data1/images/photography.jpg" alt="bootstrap carousel" title="Photography" id="wows1_6"/></a></li>
-		<li><img src="data1/images/sketching.jpg" alt="sketching" title="Sketching" id="wows1_7"/></li>
-	</ul></div>
-<div class="ws_script" style="position:absolute;left:-99%"><a href="http://wowslider.com">wowslider</a> by WOWSlider.com v8.6</div>
-	<div class="ws_shadow"></div>
-	</div>	
-	<script type="text/javascript" src="engine1/wowslider.js"></script>
-	<script type="text/javascript" src="engine1/script.js"></script>
-	<!-- End WOWSlider.com BODY section -->
+	
 
 </div>
 <div id="footerA">
