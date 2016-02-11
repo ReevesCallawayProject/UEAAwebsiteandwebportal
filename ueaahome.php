@@ -55,7 +55,7 @@ echo "The time is " . date("h:i:sa");
 <input type="button" name="aboutbtn" class="navtabs" id="about" value="About UEAA" onclick="window.location='ueaaabout.php'"/>
 </td>
 <td>
-<input type="button" name="writebtn" class="navtabs" id="write" value="UEAA Portal" onclick="window.location='ueaawebportal.php'"/>
+<input type="button" name="portalbtn" class="navtabs" id="portal" value="Portal" onclick="window.location='ueaawebportal.php'"/>
 </td>
 </div>
 </td>
