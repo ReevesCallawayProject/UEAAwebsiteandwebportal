@@ -868,7 +868,14 @@ button[name=gallerybtn]:hover{
 	height:150px;
 	margin-top: -30px;
 }
-
+input#portal {
+    postion: fixed;
+    left: 940px;
+}input#shareartwork {
+    position: fixed;
+	width: 200px;
+    left: 1050px;
+}
 
 
 

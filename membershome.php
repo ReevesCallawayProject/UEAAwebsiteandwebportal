@@ -28,6 +28,9 @@ echo "The time is " . date("h:i:sa");
 <img src="student.jpg"alt="images"  style="width:160px;height:160px;position:relative;z-index:1;" id="homelogo" class="logo" >
 </td></div>
 <div class="divs" id="navstrip" >
+
+<input type="button" name="shareartworkbtn" class="navtabs" id="shareartwork" value="Share Artwork" onclick="window.location='ueaaabout.php'">
+
 <div class="sidefield">
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="description" content="Made with WOW Slider - Create beautiful, responsive image sliders in a few clicks. Awesome skins and animations. Wowslider" />

@@ -50,11 +50,12 @@ echo "The time is " . date("h:i:sa");
 </td>
 <td>
 <input type="button" name="aboutbtn" class="navtabs" id="about" value="About UEAA" onclick="window.location='ueaaabout.php'"/>
-
+</td>
+<td>
+<input type="button" name="portalbtn" class="navtabs" id="portal" value="UEAA Portal" onclick="window.location='membershome.php'"/>
 </td>
 </div>
 </td>
-</div>
 <div class="sidefield">
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="description" content="Made with WOW Slider - Create beautiful, responsive image sliders in a few clicks. Awesome skins and animations. Wowslider" />
