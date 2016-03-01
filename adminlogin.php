@@ -1,10 +1,12 @@
 <?php
-
-/*** begin our session ***/
-session_start();
-
+if(isset($_POST['phpro_username']))
+{
+        session_start();
+        $_SESSION['name']=$_POST['phpro_username'];
+        //Storing the name of user in SESSION variable. 
+		 header("location: adminloginconfirm.php");
+}
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,13 +39,29 @@ echo "The time is " . date("h:i:sa");
 <td>
 <tr>
 <div id="inputfields">
+<td>
+
+<i><a href="ueaahome.php" style="color:snow;margin-left:20px;" class="visit" >Visit Site as Guest?</a></i>&nbsp;&nbsp;
+
+</td>
+<td>
+<font id="admin_username" class="textfonts" >Username: </font>
+</td>
+<td>
+<input type="text" id="admin_username" name="phpro_username" value="" maxlength="20" />&nbsp;&nbsp;
+</td>
+<td>
+<font id="admin_password" class="textfonts" >Password: </font>
+</td>
+<td>
+<input type="password" id="admin_password" name="phpro_password" value="" maxlength="20" />&nbsp;&nbsp;
+</td>
+<td>
 <input type="submit" id="login" class="loginbutton" value="Log-in" >
-<input type="password" class="textfield" name="admin_pword" onkeypress="return CharValidation(event)"  required>&nbsp;&nbsp;
-<font class="textfonts" >Password: </font></tr><tr>
-<input type="text" class="textfield" name="admin_uname" onkeypress="return CharValidation(event)"  required>&nbsp;&nbsp;
-&nbsp;&nbsp;<font class="textfonts" >Username: </font>
-<i><a href="ueaasignup.php" style="color:red;" class="register" >Not yet a Member?</a></i>&nbsp;&nbsp;
-<i><a href="ueaahome.php" style="color:snow;" class="visit" >Visit Site as Guest?</a></i>&nbsp;&nbsp;
+</td>
+
+
+</td>
 <div>
 
 </tr>

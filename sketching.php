@@ -10,6 +10,7 @@ session_start();
   <link href="welcomecss.css" rel="stylesheet">
 </head>
 <body style="background-image:url('automnleaf.jpg');background-size:cover;">
+<div class="divs" id="navstrip" >
 <div class="datetime">
 	<font class="dateA" >
 	<?php
@@ -24,9 +25,9 @@ echo "The time is " . date("h:i:sa");
 </div>
 <div>
 <td>
-<img src="logo.jpg"alt="images"  style="width:160px;height:160px;position:relative;z-index:1;" id="homelogo" class="logo" >
+<input type="button" class="logotab" name="homebtnlogo" id="homelogo" value="UE ARTISTA" onclick="window.location='ueaahome.php'" />
 </td></div>
-<div class="divs" id="navstrip" >
+
 <td>
 <input type="button" name="homebtn" class="navtabs" id="home" value="Home" onclick="window.location='ueaahome.php'" />
 </td>
@@ -53,12 +54,11 @@ echo "The time is " . date("h:i:sa");
 </td>
 <td>
 <input type="button" name="aboutbtn" class="navtabs" id="about" value="About UEAA" onclick="window.location='ueaaabout.php'"/>
-</td>
-<td>
-<input type="button" name="portalbtn" class="navtabs" id="portal" value="UEAA Portal" onclick="window.location='membershome.php'"/>
+
 </td>
 </div>
 </td>
+</div>
 <div class="sidefield">
 
 </div>
@@ -92,6 +92,31 @@ echo "The time is " . date("h:i:sa");
 	<script type="text/javascript" src="engine1E/wowslider.js"></script>
 	<script type="text/javascript" src="engine1E/script.js"></script>
 	<!-- End WOWSlider.com BODY section -->
+	 <div class="photogallery">
+    	<div class="row">
+	       <?php 
+	       	//scan "uploads" folder and display them accordingly
+	       $folder = "sketching";
+	       $results = scandir('sketching');
+	       foreach ($results as $result) {
+	       	if ($result === '.' or $result === '..') continue;
+	       
+	       	if (is_file($folder . '/' . $result)) {
+	       		echo '
+	       		<div class="col-md-3">
+		       		<div class="thumbnail" id="images">
+			       		<img src="'.$folder . '/' . $result.'" alt="...">
+				       		<div class="caption">
+				       		<p><a href="remove.php?name='.$result.'" class="btn btn-danger btn-xs" role="button">Remove</a></p>
+			       		</div>
+		       		</div>
+	       		</div>';
+	       	}
+	       }
+	       ?>
+    	</div>
+		 </div> <!-- /container -->
+	
 <div id="imageviewer" >
 <img class="images" id="sketchA" src="almirasketch.jpg" />
 </div><br><br>

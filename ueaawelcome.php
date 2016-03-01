@@ -1,10 +1,12 @@
 <?php
-
-/*** begin our session ***/
-session_start();
-
+if(isset($_POST['phpro_username']))
+{
+        session_start();
+        $_SESSION['phpro_username']=$_POST['phpro_username'];
+        //Storing the name of user in SESSION variable. 
+		 header("location: login_submit.php");
+}
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +15,7 @@ session_start();
   <link href="welcomecss.css" rel="stylesheet">
 </head>
 <body style="background-color:#202020;">
-	<form action="ueaaaddlogin.php" method="post">
+	<form action="login_submit.php" method="post">
 	<div>
 	<font class="date" >
 	<?php
@@ -166,18 +168,28 @@ $(function(){
 <img src="welcomewallpaper.jpg" class="wallpaper" id="welcomewallpaper" >
 <div class="divs" id="unamepcode" >
 <td>
-<tr>
+
 <div id="inputfields">
-<input type="submit" id="login" class="loginbutton" value="Log-in" >
-<input type="password" class="textfield" name="pword_mem" onkeypress="return CharValidation(event)"  required>&nbsp;&nbsp;
-<font class="textfonts" >Password: </font></tr><tr>
-<input type="text" class="textfield" name="uname_mem" onkeypress="return CharValidation(event)"  required>&nbsp;&nbsp;
-&nbsp;&nbsp;<font class="textfonts" >Username: </font>
+<td>
 <i><a href="ueaasignup.php" style="color:red;" class="register" >Not yet a Member?</a></i>&nbsp;&nbsp;
 <i><a href="ueaahome.php" style="color:snow;" class="visit" >Visit Site as Guest?</a></i>&nbsp;&nbsp;
-<i><a href="adminlogin.php" style="color:red;" class="adminlogin" >Admin</a></i><div>
-
-</tr>
+<i><a href="adminlogin.php" style="color:red;" class="adminlogin" >Admin</a></i>
+</td>
+<td>
+<font id="username" class="textfonts" >Username: </font>
+</td>
+<td>
+<input type="text" id="phpro_username" name="phpro_username" value="" maxlength="20" />&nbsp;&nbsp;
+</td>
+<td>
+<font id="password" class="textfonts" >Password: </font>
+</td>
+<td>
+<input type="password" id="phpro_password" name="phpro_password" value="" maxlength="20" />&nbsp;&nbsp;
+</td>
+<td>
+<input type="submit" id="login" class="loginbutton" value="Log-in" >
+</td>
 
 
 </td>

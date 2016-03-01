@@ -1,12 +1,7 @@
 <?php
 /*** begin our session ***/
 session_start();
-
-/*** check if the users is already logged in ***/
-if(!isset($_SESSION['name'] ))
-{
-    $message = 'Users is already logged in';
-}
+        
 /*** check that both the username, password have been submitted ***/
 if(!isset( $_POST['phpro_username'], $_POST['phpro_password']))
 {
@@ -54,7 +49,7 @@ else
     $mysql_password = 'mysql_password';
 
     /*** database name ***/
-    $mysql_dbname = 'ueartistaadmin';
+    $mysql_dbname = 'ueartistamem';
 
     try
     {
@@ -65,7 +60,7 @@ else
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         /*** prepare the select statement ***/
-        $stmt = $dbh->prepare("SELECT phpro_user_id, phpro_username, phpro_password FROM admin_users 
+        $stmt = $dbh->prepare("SELECT phpro_user_id, phpro_username, phpro_password FROM phpro_users 
                     WHERE phpro_username = :phpro_username AND phpro_password = :phpro_password");
 
         /*** bind the parameters ***/
@@ -77,7 +72,7 @@ else
 
         /*** check for a result ***/
         $user_id = $stmt->fetchColumn();
-
+		
         /*** if we have no result then fail boat ***/
         if($user_id == false)
         {
@@ -88,9 +83,9 @@ else
         {
                 /*** set the session user_id variable ***/
                 $_SESSION['user_id'] = $user_id;
-
+                
                 /*** tell the user we are logged in ***/
-                $message = 'Welcome, ' . $_SESSION['name'] . '!';
+                header("location: ueaahome.php");
         }
 
 
@@ -130,8 +125,8 @@ echo "The time is " . date("h:i:sa");
 <font class="loginmessage"><p><?php echo $message; ?></font>
 </div>
 <div>
-<input type="submit" id="loginback" class="submitbutton" value="Go Back" onclick="window.location='adminlogin.php'" >
-<input type="submit" id="welcomeproceed" class="submitbutton" value="Proceed" <?php if ($user_id == false){ ?> style="color:black;" disabled <?php } ?>  onclick="window.location='adminhome.php'" >
+<input type="submit" id="loginback" class="submitbutton" value="Go Back" onclick="window.location='ueaawelcome.php'" >
+<input type="submit" id="welcomeproceed" class="submitbutton" value="Proceed" <?php if ($user_id == false){ ?> style="color:black;" disabled <?php   } ?>  onclick="window.location='ueaahome.php'" >
 </div>
 <div id="footerA">
 <hr class="hrline" />

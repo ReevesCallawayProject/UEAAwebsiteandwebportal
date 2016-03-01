@@ -10,6 +10,7 @@ session_start();
   <link href="welcomecss.css" rel="stylesheet">
 </head>
 <body style="background-image:url('automnleaf.jpg');background-size:cover;">
+<div class="divs" id="navstrip" >
 <div class="datetime">
 	<font class="dateA" >
 	<?php
@@ -24,9 +25,9 @@ echo "The time is " . date("h:i:sa");
 </div>
 <div>
 <td>
-<img src="logo.jpg"alt="images"  style="width:160px;height:160px;position:relative;z-index:1;" id="homelogo" class="logo" >
+<input type="button" class="logotab" name="homebtnlogo" id="homelogo" value="UE ARTISTA" onclick="window.location='ueaahome.php'" />
 </td></div>
-<div class="divs" id="navstrip" >
+
 <td>
 <input type="button" class="navtabs" name="homebtn" id="home" value="Home" onclick="window.location='ueaahome.php'" />
 </td>
@@ -51,12 +52,11 @@ echo "The time is " . date("h:i:sa");
 </td>
 <td>
 <input type="button" name="aboutbtn" class="navtabs" id="about" value="About UEAA" onclick="window.location='ueaaabout.php'"/>
-</td>
-<td>
-<input type="button" name="portalbtn" class="navtabs" id="portal" value="UEAA Portal" onclick="window.location='membershome.php'"/>
+
 </td>
 </div>
 </td>
+</div>
 <div class="sidefield">
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="description" content="Made with WOW Slider - Create beautiful, responsive image sliders in a few clicks. Awesome skins and animations. Wowslider" />

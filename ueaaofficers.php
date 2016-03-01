@@ -1,5 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+
+$username = "username";
+$password = "password";
+
+
+// Create connection
+$conn = mysqli_connect('localhost', 'root', '', 'ueartistamem');
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+?>
 <head>
       
   <title>UE Artista</title>
@@ -8,6 +21,7 @@
 	<link href="styles.css" rel="stylesheet">
 </head>
 <body style="background-image:url('automnleaf.jpg');background-size:cover;">
+<div class="divs" id="navstrip" >
 <div class="datetime">
 	<font class="dateA" >
 	<?php
@@ -23,9 +37,9 @@ echo "The time is " . date("h:i:sa");
 </div>
 <div>
 <td>
-<img src="logo.jpg"alt="images"  style="width:160px;height:160px;position:relative;z-index:1;" id="homelogo" class="logo" >
+<input type="button" class="logotab" name="homebtnlogo" id="homelogo" value="UE ARTISTA" onclick="window.location='ueaahome.php'" />
 </td></div>
-<div class="divs" id="navstrip" >
+
 <td>
 <input type="button" class="navtabs" name="homebtn" id="home" value="Home" onclick="window.location='ueaahome.php'" />
 </td>
@@ -50,12 +64,11 @@ echo "The time is " . date("h:i:sa");
 </td>
 <td>
 <input type="button" name="aboutbtn" class="navtabs" id="about" value="About UEAA" onclick="window.location='ueaaabout.php'"/>
-</td>
-<td>
-<input type="button" name="portalbtn" class="navtabs" id="portal" value="UEAA Portal" onclick="window.location='membershome.php'"/>
+
 </td>
 </div>
 </td>
+</div>
 <div class="sidefield">
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="description" content="Made with WOW Slider - Create beautiful, responsive image sliders in a few clicks. Awesome skins and animations. Wowslider" />
@@ -129,63 +142,364 @@ $(document).ready(function(){
 	<div id="flipA">President</div>
 	<div id="panelA">
 		<img src="avatardefault.png" class="avatar"/>
-		<font class="officersname">Joan Loria Galban</font>
+		<?php
+		$sql = "SELECT id, officers_lname, officers_fname, officers_college, officers_course, officers_yearlvl, officers_email FROM ueaa_officers WHERE id=9";
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) { ?>
+		<font class="officersname"> <?php
+        echo $row["officers_lname"]. ", " . $row["officers_fname"]. "<br><br>"; ?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_college"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_course"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_yearlvl"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_email"]. "<br>";
+		?></font> <?php
+    }
+} else {
+    echo "0 results";
+}
+?>
+		
 	</div>
 	<div id="flipB">Vice President</div>
 	<div id="panelB">
 		<img src="avatardefault.png" class="avatar"/>
-		<font class="officersname">Eftuh Christian Foronda</font>
+		<?php
+		$sql = "SELECT id, officers_lname, officers_fname, officers_college, officers_course, officers_yearlvl, officers_email FROM ueaa_officers WHERE id=9";
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) { ?>
+		<font class="officersname"> <?php
+        echo $row["officers_lname"]. ", " . $row["officers_fname"]. "<br><br>"; ?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_college"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_course"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_yearlvl"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_email"]. "<br>";
+		?></font> <?php
+    }
+} else {
+    echo "0 results";
+}
+?>
 	</div>
 	<div id="flipC">Secretary</div>
 	<div id="panelC">
 		<img src="avatardefault.png" class="avatar"/>
-		<font class="officersname">Pauline Lumagbas</font>
+		<?php
+		$sql = "SELECT id, officers_lname, officers_fname, officers_college, officers_course, officers_yearlvl, officers_email FROM ueaa_officers WHERE id=9";
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) { ?>
+		<font class="officersname"> <?php
+        echo $row["officers_lname"]. ", " . $row["officers_fname"]. "<br><br>"; ?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_college"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_course"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_yearlvl"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_email"]. "<br>";
+		?></font> <?php
+    }
+} else {
+    echo "0 results";
+}
+?>
 	</div>
 	<div id="flipD">Treasurer</div>
 	<div id="panelD">
 		<img src="avatardefault.png" class="avatar"/>
-		<font class="officersname">Homer Francisco</font>
+		<?php
+		$sql = "SELECT id, officers_lname, officers_fname, officers_college, officers_course, officers_yearlvl, officers_email FROM ueaa_officers WHERE id=9";
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) { ?>
+		<font class="officersname"> <?php
+        echo $row["officers_lname"]. ", " . $row["officers_fname"]. "<br><br>"; ?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_college"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_course"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_yearlvl"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_email"]. "<br>";
+		?></font> <?php
+    }
+} else {
+    echo "0 results";
+}
+?>
 	</div>
 	<div id="flipH">Auditor</div>
 	<div id="panelH">
 		<img src="avatardefault.png" class="avatar"/>
-		<font class="officersname">Diane Mae Baes</font>
+		<?php
+		$sql = "SELECT id, officers_lname, officers_fname, officers_college, officers_course, officers_yearlvl, officers_email FROM ueaa_officers WHERE id=9";
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) { ?>
+		<font class="officersname"> <?php
+        echo $row["officers_lname"]. ", " . $row["officers_fname"]. "<br><br>"; ?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_college"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_course"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_yearlvl"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_email"]. "<br>";
+		?></font> <?php
+    }
+} else {
+    echo "0 results";
+}
+?>
 	</div>
 	<div id="flipE">Board of Directors for Events</div>
 	<div id="panelE">
 	<div class="panelEE">
 				<img src="avatardefault.png" class="avatar"/>
-				<font class="officersname" id="bdeventsA">Alyssa Louise Calilung</font>		
+				<?php
+		$sql = "SELECT id, officers_lname, officers_fname, officers_college, officers_course, officers_yearlvl, officers_email FROM ueaa_officers WHERE id=9";
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) { ?>
+		<font class="officersname"> <?php
+        echo $row["officers_lname"]. ", " . $row["officers_fname"]. "<br><br>"; ?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_college"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_course"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_yearlvl"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_email"]. "<br>";
+		?></font> <?php
+    }
+} else {
+    echo "0 results";
+}
+?>
 	</div>
 	<div class="panelEE">
 				<img src="avatardefault.png" class="avatar"/>
-				<font class="officersname" id="bdeventsB">Sarah Joi Pagkaliwagan</font>		
+				<?php
+		$sql = "SELECT id, officers_lname, officers_fname, officers_college, officers_course, officers_yearlvl, officers_email FROM ueaa_officers WHERE id=9";
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) { ?>
+		<font class="officersname"> <?php
+        echo $row["officers_lname"]. ", " . $row["officers_fname"]. "<br><br>"; ?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_college"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_course"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_yearlvl"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_email"]. "<br>";
+		?></font> <?php
+    }
+} else {
+    echo "0 results";
+}
+?>	
 	</div>
 	<div class="panelEE">
 				<img src="avatardefault.png" class="avatar"/>
-				<font class="officersname" id="bdeventsC">Raamah Jacob Salcedo</font>
+				<?php
+		$sql = "SELECT id, officers_lname, officers_fname, officers_college, officers_course, officers_yearlvl, officers_email FROM ueaa_officers WHERE id=9";
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) { ?>
+		<font class="officersname"> <?php
+        echo $row["officers_lname"]. ", " . $row["officers_fname"]. "<br><br>"; ?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_college"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_course"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_yearlvl"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_email"]. "<br>";
+		?></font> <?php
+    }
+} else {
+    echo "0 results";
+}
+?>
 	</div>
 	</div>
 	<div id="flipF">Board of Directors for Promotion</div>
 	<div id="panelF">
 		<div class="panelFF">
 				<img src="avatardefault.png" class="avatar"/>
-				<font class="officersname" id="bdeventsB">John Louise Adlong</font>		
+				<?php
+		$sql = "SELECT id, officers_lname, officers_fname, officers_college, officers_course, officers_yearlvl, officers_email FROM ueaa_officers WHERE id=9";
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) { ?>
+		<font class="officersname"> <?php
+        echo $row["officers_lname"]. ", " . $row["officers_fname"]. "<br><br>"; ?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_college"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_course"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_yearlvl"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_email"]. "<br>";
+		?></font> <?php
+    }
+} else {
+    echo "0 results";
+}
+?>	
 	</div>
 	<div class="panelFF">
 				<img src="avatardefault.png" class="avatar"/>
-				<font class="officersname" id="bdeventsC">Francis Angelo Tan</font>
+				<?php
+		$sql = "SELECT id, officers_lname, officers_fname, officers_college, officers_course, officers_yearlvl, officers_email FROM ueaa_officers WHERE id=9";
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) { ?>
+		<font class="officersname"> <?php
+        echo $row["officers_lname"]. ", " . $row["officers_fname"]. "<br><br>"; ?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_college"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_course"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_yearlvl"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_email"]. "<br>";
+		?></font> <?php
+    }
+} else {
+    echo "0 results";
+}
+?>
 	</div>
 	</div>
 	<div id="flipG">Board of Directors for Publicity</div>
 	<div id="panelG">
 		<div class="panelFF">
 				<img src="avatardefault.png" class="avatar"/>
-				<font class="officersname" id="bdeventsB">John Louise Adlong</font>		
+				<?php
+		$sql = "SELECT id, officers_lname, officers_fname, officers_college, officers_course, officers_yearlvl, officers_email FROM ueaa_officers WHERE id=9";
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) { ?>
+		<font class="officersname"> <?php
+        echo $row["officers_lname"]. ", " . $row["officers_fname"]. "<br><br>"; ?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_college"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_course"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_yearlvl"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_email"]. "<br>";
+		?></font> <?php
+    }
+} else {
+    echo "0 results";
+}
+?>	
 	</div>
 	<div class="panelFF">
 				<img src="avatardefault.png" class="avatar"/>
-				<font class="officersname" id="bdeventsC">Francis Angelo Tan</font>
+				<?php
+		$sql = "SELECT id, officers_lname, officers_fname, officers_college, officers_course, officers_yearlvl, officers_email FROM ueaa_officers WHERE id=9";
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) { ?>
+		<font class="officersname"> <?php
+        echo $row["officers_lname"]. ", " . $row["officers_fname"]. "<br><br>"; ?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_college"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_course"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_yearlvl"]. "<br>";?>
+		</font>
+		<font class="officersname" id="officersinfo" > <?php
+		echo $row["officers_email"]. "<br>";
+		?></font> <?php
+    }
+} else {
+    echo "0 results";
+}
+?>
 	</div>
 	</div>
 </div>
@@ -212,17 +526,11 @@ $(document).ready(function(){
 <font class="footertextB"> Artists Alliance</font>
         <div class="container">
 		</div>
-</div>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+</div>		
 </body>
+<?php
+
+  // Close our connection
+ mysqli_close($conn);
+ ?>
 </html>
