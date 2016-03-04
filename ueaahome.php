@@ -1,6 +1,6 @@
 <?php
-// Start the session
-session_start();
+        session_start();
+       
 ?>
 
 <!DOCTYPE html>
@@ -11,23 +11,22 @@ session_start();
   <link href="welcomecss.css" rel="stylesheet">
 </head>
 <body style="background-image:url('automnleaf.jpg');background-size:cover;">
-<div class="datetime">
+<div class="divs" id="navstrip" >
+<td class="datetime">
 	<font class="dateA" >
 	<?php
 	echo "Today is " . date("Y-m-d") . "<br>";
 ?></font>
-</div>
-<div>
+</td>
+<td>
 	<font class="time" >
 	<?php
 echo "The time is " . date("h:i:sa");
 ?></font>
-</div>
-<div>
+</td>
 <td>
-<img src="logo.jpg"alt="images"  style="width:160px;height:160px;position:relative;z-index:1;" id="homelogo" class="logo" >
-</td></div>
-<div class="divs" id="navstrip" >
+	<input type="button" class="logotab" name="homebtnlogo" id="homelogo" value="UE ARTISTA" onclick="window.location='ueaahome.php'" />
+</td>
 <td>
 <input type="button" class="navtabs" name="homebtnA" id="home" value="Home" onclick="window.location='ueaahome.php'" />
 </td>
@@ -55,13 +54,18 @@ echo "The time is " . date("h:i:sa");
 <input type="button" name="aboutbtn" class="navtabs" id="about" value="About UEAA" onclick="window.location='ueaaabout.php'"/>
 </td>
 <td>
-<input type="button" name="portalbtn" class="navtabs" id="portal" value="UEAA Portal" onclick="window.location='membershome.php'"/>
+<input type="button" name="writebtn" class="navtabs" id="write" value="Profile" onclick="window.location='writeform.php'"/>
 </td>
+
 </div>
 </td>
 
 <div class="sidefield">
-
+<td>
+<font class="usernamesession"><a class="usersession" href="writeform.php"> </a></font><br><br>
+ <!-- <a class="usersession" href="logout.php" >Click here to log out</a> -->
+<input type="button" class="usersession" name="logoutbtnlogo" id="logoutlogo" value="Log out" onclick="window.location='ueaawelcome.php'" />
+</td>
 </div>
 <div class="walls" id="homewall" ><br>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />

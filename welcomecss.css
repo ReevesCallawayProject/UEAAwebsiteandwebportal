@@ -11,7 +11,7 @@ div#navstrip{
 	position: fixed;
     left: 0px;
 	opacity:0.8;
-	top: 60px;
+	top: 00px;
 }
 img#welcomelogo {
     margin-left: 100px;
@@ -24,6 +24,12 @@ img#welcomelogo {
 img#homelogo:hover{
 	transition: all .5s ease-in-out;
 }
+img#homelogo2:hover{
+	transition: all .5s ease-in-out;
+}
+img#logoutlogo:hover{
+	transition: all .5s ease-in-out;
+}
 img#homelogo{
     margin-left: 100px;
     position: absolute;
@@ -33,6 +39,16 @@ img#homelogo{
 	opacity:1;
 	top: 20px;
 }
+img#logoutlogo{
+    margin-left: 100px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+	opacity:1;
+	top: 20px;
+}
+
 div#unamepcode{
 	position:fixed;
 	width: 100%;
@@ -55,6 +71,17 @@ div#footer {
 	left: 0;
 	background-color: black;
 }
+input#homelogo2 {
+    position: absolute;
+    left: 10px;
+	height: 100px;
+    width: 240px;
+    background-color: transparent;
+    color: red;
+    font-size: 40px;
+	border: none;
+	font-family: "Arial Narrow", Arial, sans-serif;
+}
 div#inputfields {
     padding-top: 20px;
 }
@@ -71,10 +98,14 @@ div#inputfields {
 	font-family:"Lucida Console", Sans-serif;
 	font-size:16px;
 }
-.textfonts{
-	float:right;
+font#username{
+	margin-left: 300px;
+}
+font#password{
 	margin-left: 20px;
-	margin-right: -23px;
+}
+.textfonts{
+	margin-right: -20px;
 	color:red;
 	position: relative;
     right: 16px;
@@ -165,16 +196,16 @@ input#gallery{
     left: 460px;
 }
 .walls{
-	width:870px;
-	height:415px;
+	width:900px;
+	height:580px;
 	position: fixed;
-    top: 210px;
+    top: 100px;
     background-color: black;
 	opacity:0.9;
     left: 110px;
+	overflow: scroll;
 }
 .walls:hover{
-	overflow: scroll;
 	transition: all .4s ease-in-out;
 }
 img#logosignup {
@@ -239,6 +270,7 @@ body {
 	font-family:"Lucida Console", Sans-serif;
 	border:none;
 	width:210px;
+	padding-left: 5px;
 }
 input#signup, input#accept {
     position: absolute;
@@ -416,11 +448,11 @@ img#welcomewallpaper {
 	right:0;
 }
 .sidefield{
-	position:fixed;
-	width:320px;
-	height:500px;
+	position:absolute;
+	width:300px;
+	height:550px;
 	background-color:black;
-	top:158px;
+	top:100px;
 	right:0;
 }
 .hrline{
@@ -452,7 +484,7 @@ img#welcomewallpaper {
 	position: absolute;
     right: 80px;
 	font-family:"Lucida Console", Sans-serif;
-	width: 210px;
+	width: 215px;
 	overflow: hidden;
 	cursor:pointer;
 }
@@ -647,9 +679,10 @@ hr#hrlineaboutF{
 	position: relative;
     top: 70px;
 }
-input[name=homebtn]:active, 
+input[name=homebtn]:active,
 input[name=officersbtn]:active, 
-input[name=aboutbtn]:active {
+input[name=aboutbtn]:active
+input[name=gallerybtn]:active {
 	background-color: snow;
 }
 input[name=homebtnA]{
@@ -676,11 +709,11 @@ input[name=aboutbtnA]:hover{
 	background-color:black;
 	color:snow;
 }
-button[name=gallerybtn]{
+input[name=gallerybtn]{
 	background-color:snow;
 	color:black;
 }
-button[name=gallerybtn]:hover{
+input[name=gallerybtn]:hover{
 	background-color:black;
 	color:snow;
 }
@@ -761,7 +794,7 @@ button[name=gallerybtn]:hover{
 	font-family: "Lucida Console", Sans-serif;
 	font-size: 16px;
 }
-#webportal{
+#write{
     position: fixed;
     left: 940px;
 }
@@ -868,28 +901,156 @@ button[name=gallerybtn]:hover{
 	height:150px;
 	margin-top: -30px;
 }
-input#portal {
-    postion: fixed;
-    left: 940px;
-}input#shareartwork {
-    position: fixed;
-	width: 200px;
-    left: 1050px;
+input#homelogo {
+    position: absolute;
+    left: 30px;
+	height: 100px;
+    width: 240px;
+    background-color: transparent;
+    color: red;
+    font-size: 40px;
+	border: none;
+	font-family: "Arial Narrow", Arial, sans-serif;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+input#homelogo2 {
+    position: absolute;
+    left: 10px;
+	height: 100px;
+    width: 240px;
+    background-color: transparent;
+    color: red;
+    font-size: 40px;
+	border: none;
+	font-family: "Arial Narrow", Arial, sans-serif;
+}
+input#homelogo:hover {
+	color:snow;
+	transition: all .4s ease-in-out;
+}
+input#homelogo2:hover {
+	color:snow;
+	transition: all .4s ease-in-out;
+}
+input#logoutlogo {
+    position: absolute;
+    left: 10px;
+	height: 100px;
+    width: 240px;
+    background-color: transparent;
+    color: red;
+    font-size: 40px;
+	border: none;
+	font-family: "Arial Narrow", Arial, sans-serif;
+}
+input#logoutlogo:hover {
+	color:snow;
+	transition: all .4s ease-in-out;
+}
+a.register {
+    margin-left: 20px;
+}
+font#admin_username{
+	margin-left:550px;
+}
+font#admin_password{
+	margin-left:20px;
+}
+.photogallery {
+    width: 800px;
+	position: absolute;
+    padding-left: 100px;
+	padding-top: 30px;
+}
+.photouploadcontainer {
+    width: 450px;
+    position: relative;
+    left: 50px;
+	background-color: snow;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.space{
+	width: 450px;
+    position: relative;
+    left: 50px;
+	height:80px;
+}
+.uploadtitle {
+    font-family: "Copperplate Gothic";
+    font-weight: bold;
+    color: red;
+}
+label.selectfile {
+    padding-left: 20px;
+}
+.choosefileBtn{
+	background-color: black;
+    cursor: pointer;
+    color: snow;
+    margin-left: 20px;
+}
+.uploadBtn {
+    border: none;
+    background-color: #808080;
+    color: snow;
+    margin-left: -5px;
+    height: 21px;
+	margin-top: 5px;
+	cursor: pointer;
+	width: 80px;
+}
+.uploadBtn:hover {
+    border: none;
+    background-color: black;
+    color: snow;
+    margin-left: -5px;
+    height: 21px;
+	margin-top: 5px;
+	cursor: pointer;
+}
+input#adminhome {
+    background-color: transparent;
+    color: snow;
+}
+input#adminhome:hover {
+    background-color: red;
+    color: snow;
+}
+input#adminupload{
+    margin-left: 160px;
+}
+font#officersinfo {
+    margin-left: 180px;
+}
+input#returnBtn {
+    z-index: -1;
+    background-color: black;
+	color:snow;
+    left: 40px;
+    top: 10px;
+}
+input#returnBtn:hover {
+    z-index: -1;
+    background-color: snow;
+	color:black;
+    left: 40px;
+    top: 10px;
+}
+font.usernamesession {
+    position: absolute;
+    color: snow;
+    font-size: 15px;
+    padding-top: 15px;
+	left: 15px;
+	font-family: "Lucida Console", Sans-serif;
+}
+.usersession{
+	color:red;
+	font-size: 18px;
+	cursor:pointer;
+	float: right;
+    margin-right: 20px;
+}
 
 
 

@@ -30,7 +30,7 @@ echo "The time is " . date("h:i:sa");
 </div>
 		<div class="divs" id="photostrip" >
 			<td>
-			<img src= "logo.jpg" alt="images"  style="width:160px;height:160px;position:absolute;z-index:10;" id="welcomelogo" class="logo" />
+			<input type="button" class="logotab" name="homebtnlogo" id="homelogo2" value="UE ARTISTA" onclick="window.location='ueaahome.php'" />
 			</td>
 			<td>
 			<div class="slideshow" >
