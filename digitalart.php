@@ -8,8 +8,10 @@ session_start();
   <title>UE Artista</title>
     <link rel="shortcut icon" href="webicon.png">
   <link href="welcomecss.css" rel="stylesheet">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 </head>
-<body style="background-image:url('automnleaf.jpg');background-size:cover;">
+<body style="background-color:snow;">
+<div class="divs" id="navstrip" >
 <div class="datetime">
 	<font class="dateA" >
 	<?php
@@ -24,9 +26,10 @@ echo "The time is " . date("h:i:sa");
 </div>
 <div>
 <td>
-<img src="logo.jpg"alt="images"  style="width:160px;height:160px;position:relative;z-index:1;" id="homelogo" class="logo" >
+<input type="button" class="logotab" name="homebtnlogo" id="homelogo" value="UE Artista" onclick="window.location='ueaahome.php'" />
+<font class="uetext">University of the East</font>
 </td></div>
-<div class="divs" id="navstrip" >
+
 <td>
 <input type="button" class="navtabs" id="home" name="homebtn" value="Home" onclick="window.location='ueaahome.php'" />
 </td>
@@ -52,16 +55,21 @@ echo "The time is " . date("h:i:sa");
 <td>
 <input type="button" class="navtabs" name="aboutbtn" id="about" value="About UEAA" onclick="window.location='ueaaabout.php'"/>
 
-<</td>
-<td>
-<input type="button" name="portalbtn" class="navtabs" id="portal" value="UEAA Portal" onclick="window.location='membershome.php'"/>
 </td>
-</div>
-</td>
-<div class="sidefield">
 
+<td>
+<input type="button" name="writebtn" class="navtabs" id="write" value="Share" onclick="window.location='writeform.php'"/>
+</td>
 </div>
-<div class="walls" id="homewall" ><br>
+</td>
+</div>
+<div class="sidefield">
+<td>
+<!--<font class="usernamesession"><a class="usersession" href="writeform.php"> </a></font><br><br> -->
+<input type="button" class="sideBtn" onclick="window.location='logout.php'" value="Log Out" />
+<input type="button" class="btnicon" onclick="window.location='logout.php'" style="background-image: url('logout.png');background-size: cover;" /><br><br><br><br>
+<input type="button" class="sideBtn" onclick="window.location='ueaaevents.php'" value="Events" />
+</td>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="description" content="Made with WOW Slider - Create beautiful, responsive image sliders in a few clicks. Awesome skins and animations. Http://wowslider.com/" />
 	
@@ -91,7 +99,63 @@ echo "The time is " . date("h:i:sa");
 	<script type="text/javascript" src="engine1C/wowslider.js"></script>
 	<script type="text/javascript" src="engine1C/script.js"></script>
 	<!-- End WOWSlider.com BODY section -->
-	
+
+</div>
+<div class="walls" id="homewall" ><br>
+	<!-- <div class="photogallery">
+    	<div class="row">
+	       <?php 
+	       	//scan "uploads" folder and display them accordingly
+	       $folder = "digital art";
+	       $results = scandir('digital art');
+	       foreach ($results as $result) {
+	       	if ($result === '.' or $result === '..') continue;
+	       
+	       	if (is_file($folder . '/' . $result)) {
+	       		echo '
+	       		<div class="col-md-3">
+		       		<div class="thumbnail" id="images">
+			       		<img class="imagedimension" src="'.$folder . '/' . $result.'" alt="...">
+				       		<div class="caption">
+				       		<p><a href="remove.php?name='.$result.'" class="btn btn-danger btn-xs" role="button">Remove</a></p>
+			       		</div>
+		       		</div>
+	       		</div>';
+	       	}
+	       }
+	       ?>
+    	</div>
+		 </div> <!-- /container -->
+		 <div class="photogallery">
+		 <?php
+$mysqli = new mysqli( 'localhost', 'root', '', 'ueartistamem' );
+$sql = "SELECT * FROM images_tbl WHERE image_category='Digital Art' AND image_status='Approved'";
+$result = $mysqli->query($sql);
+echo "<table>";
+while($row=mysqli_fetch_array($result))
+{
+	echo "<tr>";
+	echo "<td>";?> <img src="<?php echo $row["images_path"]; ?>" class="imagedimension" height="100" width="100"> <?php echo "</td>";
+	echo "</tr>";
+	echo "<tr>";
+								echo "<td>";?> <font class="imagecaption" id="imagecaptiontitle"><?php echo $row["title"]; echo "</td>";
+								echo "</tr>";
+								echo "<tr>";
+								echo "<td>";?><font class="imagecaption" ><?php echo " by " . $row["artists"]; echo "</td>";
+								echo "</tr>";
+								echo "<tr>";
+								echo "<td>";?> <font class="announcementB" id="datetime" style="color:snow;"><?php echo $row["submission_date"] . " at " . $row["submission_time"]; echo "</td>";
+								echo "</tr>"; 
+								echo "<tr>";
+								echo "<td>";?><hr class="postlines" /><?php echo "</td>";
+								echo "</tr>";	
+								echo "<tr>";
+								echo "<td>";?><br><?php
+								echo "</tr>";
+}
+echo "</table>";
+?>
+		 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script> 
 $(document).ready(function(){
@@ -103,37 +167,9 @@ $(document).ready(function(){
     });
 });
 </script>
-<br><br>
-	<div id="flipAdigiart">Digital Arts by John Kenneth Canonoy / Game Development</div>
-	<div id="panelAdigiart">
-<div id="imageviewer" >
-<img class="images" id="digitalartA" src="canonoydigiart.jpg" />
-</div><br><br>
-<div id="imageviewer" >
-<img class="images" id="digitalartA" src="canonoydigiartA.jpg" />
-</div><br><br>
-<div id="imageviewer" >
-<img class="images" id="digitalartA" src="canonoydigiartB.jpg" />
-</div><br><br>
-<div id="imageviewer" >
-<img class="images" id="digitalartA" src="canonoydigiartC.jpg" />
-</div><br><br>
-<div id="imageviewer" >
-<img class="images" id="digitalartA" src="canonoydigiartD.jpg" />
-</div><br><br>
-<div id="imageviewer" >
-<img class="images" id="digitalartA" src="canonoydigiartE.jpg" />
-</div><br><br>
-<div id="imageviewer" >
-<img class="images" id="digitalartA" src="canonoydigiartF.jpg" />
-</div><br><br>
-	</div>
-<div id="flipAdigiartA">Digital Arts by Israel Dred Cagampan / Game Development</div>
-	<div id="panelAdigiartA">
-<div id="imageviewer" >
-<img class="images" id="digitalartA" src="israeldigiart.jpg" />
-</div><br><br>
-</div></div>
+
+<div class="space">
+	</div></div>
 <div id="footerA">
 <hr class="hrline" /><td>
 <input id="facebook" class="sociallink" type="button" onclick="window.open('https://www.facebook.com/UE-ArtistA-218898668140378/timeline/')" style="background-image:url('facebook.png');background-size:cover;" >

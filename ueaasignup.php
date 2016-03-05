@@ -13,7 +13,7 @@ if ( ! empty( $_POST ) ) {
   }
   
   // Insert our data
-  $sql = "INSERT INTO ueaamembers ( sname_mem, gname_mem, sn_mem, college_mem, yrlevel_mem, address_mem, cnum_mem, email) VALUES ( '{$mysqli->real_escape_string($_POST['sname_mem'])}', '{$mysqli->real_escape_string($_POST['gname_mem'])}', '{$mysqli->real_escape_string($_POST['sn_mem'])}', '{$mysqli->real_escape_string($_POST['college_mem'])}', '{$mysqli->real_escape_string($_POST['yrlevel_mem'])}', '{$mysqli->real_escape_string($_POST['address_mem'])}', '{$mysqli->real_escape_string($_POST['cnum_mem'])}', '{$mysqli->real_escape_string($_POST['email'])}' )";
+  $sql = "INSERT INTO ueaamembers ( sname_mem, gname_mem, sn_mem, college_mem, course_mem, yrlevel_mem, address_mem, cnum_mem, email, ueaa_status) VALUES ( '{$mysqli->real_escape_string($_POST['sname_mem'])}', '{$mysqli->real_escape_string($_POST['gname_mem'])}', '{$mysqli->real_escape_string($_POST['sn_mem'])}', '{$mysqli->real_escape_string($_POST['college_mem'])}', '{$mysqli->real_escape_string($_POST['course_mem'])}','{$mysqli->real_escape_string($_POST['yrlevel_mem'])}', '{$mysqli->real_escape_string($_POST['address_mem'])}', '{$mysqli->real_escape_string($_POST['cnum_mem'])}', '{$mysqli->real_escape_string($_POST['email'])}', 'Pending Membership' )";
   $insert = $mysqli->query($sql);
   
   // Print response from MySQL
@@ -76,11 +76,7 @@ function isValidEmail($email) {
     return filter_var($email, FILTER_VALIDATE_EMAIL);
 }
 </script>
-<div>
-<video class="video" autoplay muted loop>
-  <source src="UEaavidA.mp4" type="video/mp4">
-</video>
-</div>
+
 
 <form action="" method="post">
 <fieldset style="" class="signupfield">
@@ -89,14 +85,14 @@ function isValidEmail($email) {
 <table>
 <div align="center"><br>
 <tr>
-<font class="text" >Surname: </font>
+<font class="text" >Last Name: </font>
 <input type="text" class="inputtextfield" name="sname_mem" onkeypress="return CharValidation(event)" required>&nbsp;&nbsp;
 <br><br>
-<font class="text">Given name: </font>
+<font class="text">Given Name: </font>
 <input type="text" class="inputtextfield" name="gname_mem" onkeypress="return CharValidation(event)" required>&nbsp;&nbsp;
 <br><br>
-<font class="text">M.I.: </font>
-<input type="text" class="inputtextfield" name="mi" maxlength="2" onkeypress="return CharValidation(event)" required>
+<font class="text">Middle Name: </font>
+<input type="text" class="inputtextfield" name="mi" onkeypress="return CharValidation(event)" required>
 </tr><br><br>
 <tr>
 <font class="text">Student No.: </font>
@@ -105,14 +101,17 @@ function isValidEmail($email) {
 <font class="text">College: </font>
 <select class="dropdownselect" name="college_mem" >
 	<option class="optiondropdown" value="None"></option>
-    <option class="optiondropdown" value="artsci">Arts and Sciences</option>
-    <option class="optiondropdown" value="businessad">Business Administration</option>
-	<option class="optiondropdown" value="ccss">Computer Studies and Systems</option>
-	<option class="optiondropdown" value="dentistry">Dentistry</option>
-	<option class="optiondropdown" value="education">Education</option>
-	<option class="optiondropdown" value="engineering">Engineering</option>
-	<option class="optiondropdown" value="law">Law</option>
+    <option class="optiondropdown" value="College of Arts and Sciences">Arts and Sciences</option>
+    <option class="optiondropdown" value="College of Business Administration">Business Administration</option>
+	<option class="optiondropdown" value="College of Coomputer Studies and Systems">Computer Studies and Systems</option>
+	<option class="optiondropdown" value="College of Dentistry">Dentistry</option>
+	<option class="optiondropdown" value="College of Education">Education</option>
+	<option class="optiondropdown" value="College of Engineering">Engineering</option>
+	<option class="optiondropdown" value="College of Law">Law</option>
 	</select>&nbsp;
+<br><br>
+<font class="text">Course: </font>
+<input type="text" class="inputtextfield" name="course_mem" maxlength="30" onkeypress="return CharValidation(event)" required>&nbsp;&nbsp;
 <br><br>
 <font class="text">Year Level: </font>
 <select class="dropdownselect" name="yrlevel_mem" >
@@ -144,10 +143,15 @@ function isValidEmail($email) {
 
 <div id="footerA">
 <hr class="hrline" />
+<td>
+<!--<input type="submit" id="returnBtn" class="submitbutton" value="Go Back" action="ueaawelcome.php">-->
+</td>
+<td>
 <font class="footertextA"> University of the East</font><br>
+</td>
+<td>
 <font class="footertextB"> Artists Alliance</font>
-        <div class="container">
-		</div>
+</td>
 </div>
 		
 		

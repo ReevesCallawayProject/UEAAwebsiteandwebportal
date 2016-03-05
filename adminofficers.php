@@ -42,33 +42,16 @@ echo "The time is " . date("h:i:sa");
 </td></div>
 
 <td>
-<input type="button" class="navtabs" name="homebtn" id="home" value="Home" onclick="window.location='ueaahome.php'" />
+<input type="button" class="navtabs" name="homebtn" id="home" value="Home" onclick="window.location='adminhome.php'" />
 </td>
 <td>
-<div class="dropdown">
-    <!-- trigger button -->
-    <button class="navtabs" id="gallery" value="Gallery">Gallery </button>
-    <!-- dropdown menu -->
-    <ul class="dropdown-menu">
-	    <li><a href="crafting.php">Crafting</a></li>
-	    <li><a href="film.php">Film</a></li>
-        <li><a href="digitalart.php">Digital Art</a></li>
-	    <li><a href="literary.php">Literary</a></li>
-        <li><a href="music.php">Music</a></li>
-		<li><a href="painting.php">Painting</a></li>
-        <li><a href="photography.php">Photography</a></li>
-		<li><a href="sketching.php">Sketching</a></li>
-    </ul>
-</div></td>
-<td>
-<input type="button" name="officersbtnA" class="navtabs" id="officers" value="Officers" onclick="window.location='ueaaofficers.php'"/>
+<input type="button" class="navtabs" name="gallerybtn" id="adminupload" value="Gallery" onclick="window.location='admingallery.php'" />
 </td>
 <td>
-<input type="button" name="aboutbtn" class="navtabs" id="about" value="About UEAA" onclick="window.location='ueaaabout.php'"/>
+<input type="button" name="officersbtn" class="navtabs" id="officers" value="Officers" onclick="window.location='adminofficers.php'"/>
 </td>
-
 <td>
-<input type="button" name="writebtn" class="navtabs" id="write" value="Share" onclick="window.location='writeform.php'"/>
+<input type="button" name="aboutbtn" class="navtabs" id="about" value="About UEAA" onclick="window.location='adminaboutueaa.php'"/>
 </td>
 </div>
 </td>
@@ -78,7 +61,7 @@ echo "The time is " . date("h:i:sa");
 <!--<font class="usernamesession"><a class="usersession" href="writeform.php"> </a></font><br><br> -->
 <input type="button" class="sideBtn" onclick="window.location='logout.php'" value="Log Out" />
 <input type="button" class="btnicon" onclick="window.location='logout.php'" style="background-image: url('logout.png');background-size: cover;" /><br><br><br><br>
-<input type="button" class="sideBtn" onclick="window.location='ueaaevents.php'" value="Events" />
+<input type="button" class="sideBtn" onclick="window.location='admincreateevents.php'" value="Events" />
 </td>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="description" content="Made with WOW Slider - Create beautiful, responsive image sliders in a few clicks. Awesome skins and animations. Wowslider" />
@@ -513,7 +496,11 @@ if (mysqli_num_rows($result) > 0) {
 	</div>
 	</div>
 </div>
-
+<div>
+<video class="videoA" autoplay muted loop>
+  <source src="UEaavidA.mp4" type="video/mp4">
+</video>
+</div>
 
 </tr>
 </table>

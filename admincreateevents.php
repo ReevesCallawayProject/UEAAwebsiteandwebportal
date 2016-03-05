@@ -1,21 +1,47 @@
-<?php
-// Start the session
-session_start();
-?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<?php
+
+$username = "username";
+$password = "password";
+if ( ! empty( $_POST ) ) {
+  
+  // Connect to MySQL
+  $mysqli = new mysqli( 'localhost', 'root', '', 'ueartistaadmin' );
+  
+  // Check our connection
+  if ( $mysqli->connect_error ) {
+    die( 'Connect Error: ' . $mysqli->connect_errno . ': ' . $mysqli->connect_error );
+  }
+
+// Insert our data
+  $sql = "INSERT INTO ueaaeventspost ( events_content, date_posted, time_posted) VALUES ( '{$mysqli->real_escape_string($_POST['announcement'])}', '".date("Y-m-d")."','". date("h:i:s")."')";
+  $insert = $mysqli->query($sql);
+  // Print response from MySQL
+  if ( $insert ) { 
+	echo "Success! Row ID: {$mysqli->insert_id}";
+  } else {
+    die("Error: {$mysqli->errno} : {$mysqli->error}");
+  }
+    // Close our connection
+$mysqli->close();
+}
+?>
 <head>
+      
   <title>UE Artista</title>
     <link rel="shortcut icon" href="webicon.png">
-  <link href="welcomecss.css" rel="stylesheet">
+	<link href="welcomecss.css" rel="stylesheet">
+	<link href="styles.css" rel="stylesheet">
 </head>
-<body style="background-color:snow;">
+<body style="background-image:url('automnleaf.jpg');background-size:cover;">
 <div class="divs" id="navstrip" >
 <div class="datetime">
 	<font class="dateA" >
 	<?php
 	echo "Today is " . date("Y-m-d") . "<br>";
-?></font>
+?>
+</font>
 </div>
 <div>
 	<font class="time" >
@@ -30,36 +56,18 @@ echo "The time is " . date("h:i:sa");
 </td></div>
 
 <td>
-<input type="button" class="navtabs" name="homebtn" id="home" value="Home" onclick="window.location='ueaahome.php'" />
+<input type="button" class="navtabs" name="homebtn" id="home" value="Home" onclick="window.location='adminhome.php'" />
 </td>
 <td>
-<div class="dropdown">
-    <!-- trigger button -->
-    <button class="navtabs" id="gallery" name="gallerybtn" value="Gallery">Gallery </button>
-    <!-- dropdown menu -->
-    <ul class="dropdown-menu">
-	    <li><a href="crafting.php">Crafting</a></li>
-	    <li><a href="film.php">Film</a></li>
-        <li><a href="digitalart.php">Digital Art</a></li>
-	    <li><a href="literary.php">Literary</a></li>
-        <li><a href="music.php">Music</a></li>
-		<li><a href="painting.php">Painting</a></li>
-        <li><a href="photography.php">Photography</a></li>
-		<li><a href="sketching.php">Sketching</a></li>
-    </ul>
-</div>
+<input type="button" class="navtabs" name="gallerybtn" id="adminupload" value="Gallery" onclick="window.location='adminupload.php'" style="background-color:black;color:snow;"/>
 </td>
 <td>
-<input type="button" name="officersbtn" class="navtabs" id="officers" value="Officers" onclick="window.location='ueaaofficers.php'"/>
+<input type="button" name="officersbtnA" class="navtabs" id="officers" value="Officers" onclick="window.location='adminofficers.php'" style="background-color:black;color:snow;"/>
 </td>
 <td>
-<input type="button" name="aboutbtn" class="navtabs" id="about" value="About UEAA" onclick="window.location='ueaaabout.php'"/>
-
+<input type="button" name="aboutbtn" class="navtabs" id="about" value="About UEAA" onclick="window.location='adminaboutueaa.php'"/>
 </td>
 
-<td>
-<input type="button" name="writebtn" class="navtabs" id="write" value="Profile" onclick="window.location='writeform.php'"/>
-</td>
 </div>
 </td>
 </div>
@@ -68,9 +76,9 @@ echo "The time is " . date("h:i:sa");
 <!--<font class="usernamesession"><a class="usersession" href="writeform.php"> </a></font><br><br> -->
 <input type="button" class="sideBtn" onclick="window.location='logout.php'" value="Log Out" />
 <input type="button" class="btnicon" onclick="window.location='logout.php'" style="background-image: url('logout.png');background-size: cover;" /><br><br><br><br>
-<input type="button" class="sideBtn" onclick="window.location='ueaaevents.php'" value="Events" />
+<input type="button" class="sideBtn" onclick="window.location='admincreateevents.php'" value="Events" />
 </td>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="description" content="Made with WOW Slider - Create beautiful, responsive image sliders in a few clicks. Awesome skins and animations. Wowslider" />
 	
 	<!-- Start WOWSlider.com HEAD section --> <!-- add to the <head> of your page -->
@@ -103,65 +111,27 @@ echo "The time is " . date("h:i:sa");
 
 </div>
 <div class="walls" id="homewall" >
-<!-- <div class="photogallery">
+<td>
+<div id="events"><font id="eventstitle">UE Artista Events</font></div>
+<div id="postevents"><font id="posteventstitle">Post an Announcement</font></div>
+<form method="post" action="" >
+<input type="text" class="inputtextfield" name="announcement" id="announcement">
+<input type="submit" id="postannouncement" value="Post" ><br><br>
+</form>
+</td>
+<td>
+<div id="postevents"><font id="addphotosevents">Add Photos to Events</font></div>
+<form action="eventalbum.php" method="POST" enctype="multipart/form-data">
+<div id="uploadalbum">
+<label for="file" class="descriptiontitle" id="eventtitle">Title</label><br>
+<input type="text" class="inputtextfield" id="eventdescription" name="event_description"><br><br>
 
-    	<div class="row">
-	       <?php 
-	       	//scan "uploads" folder and display them accordingly
-	       $folder = "crafting";
-	       $results = scandir('crafting');
-	       foreach ($results as $result) {
-	       	if ($result === '.' or $result === '..') continue;
-	       
-	       	if (is_file($folder . '/' . $result)) {
-	       		echo '
-	       		<div class="col-md-3">
-		       		<div class="thumbnail" id="images">
-			       		<img class="imagedimension" src="'.$folder . '/' . $result.'" alt="...">
-				       		<div class="caption">
-				       		<p><a href="remove.php?name='.$result.'" class="btn btn-danger btn-xs" role="button">Remove</a></p>
-			       		</div>
-		       		</div>
-	       		</div>';
-	       	}
-	       }
-	       ?>
-    	</div>
-		 </div> -->
-		 
-		 <div class="photogallery">
-		 <?php
-$mysqli = new mysqli( 'localhost', 'root', '', 'ueartistamem' );
-$sql = "SELECT * FROM images_tbl WHERE image_category='Crafting' AND image_status='Approved'";
-$result = $mysqli->query($sql);
-echo "<table>";
-while($row=mysqli_fetch_array($result))
-{
-	echo "<tr>";
-	echo "<td>";?> <img src="<?php echo $row["images_path"]; ?>" class="imagedimension" height="100" width="100"> <?php echo "</td>";
-	echo "</tr>";
-	echo "<tr>";
-								echo "<td>";?> <font class="imagecaption" id="imagecaptiontitle"><?php echo $row["title"]; echo "</td>";
-								echo "</tr>";
-								echo "<tr>";
-								echo "<td>";?><font class="imagecaption" ><?php echo " by " . $row["artists"]; echo "</td>";
-								echo "</tr>";
-								echo "<tr>";
-								echo "<td>";?> <font class="announcementB" id="datetime" style="color:snow;"><?php echo $row["submission_date"] . " at " . $row["submission_time"]; echo "</td>";
-								echo "</tr>"; 
-								echo "<tr>";
-								echo "<td>";?><hr class="postlines" /><?php echo "</td>";
-								echo "</tr>";	
-								echo "<tr>";
-								echo "<td>";?><br><?php
-								echo "</tr>";
-}
-echo "</table>";
-?>
-		 </div>
-		 
-		 <div class="space">
-	</div>
+<input type="file" class="choosefileBtn" id="chooseimages" name="files[]" multiple="">
+<input name="Upload Now" type="submit" value="Upload Image" class="uploadBtn" id="uploadmulfiles">
+</div>
+</form>
+
+</td>
 </div>
 <div id="footerA">
 <hr class="hrline" /><td>
@@ -177,17 +147,7 @@ echo "</table>";
 <font class="footertextB"> Artists Alliance</font>
         <div class="container">
 		</div>
-</div>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+</div>		
 </body>
+
 </html>

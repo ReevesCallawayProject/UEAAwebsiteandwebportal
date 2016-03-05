@@ -9,7 +9,7 @@ session_start();
     <link rel="shortcut icon" href="webicon.png">
   <link href="welcomecss.css" rel="stylesheet">
 </head>
-<body style="background-image:url('automnleaf.jpg');background-size:cover;">
+<body style="background-color:snow;">
 <div class="divs" id="navstrip" >
 <div class="datetime">
 	<font class="dateA" >
@@ -25,7 +25,8 @@ echo "The time is " . date("h:i:sa");
 </div>
 <div>
 <td>
-<input type="button" class="logotab" name="homebtnlogo" id="homelogo" value="UE ARTISTA" onclick="window.location='ueaahome.php'" />
+<input type="button" class="logotab" name="homebtnlogo" id="homelogo" value="UE Artista" onclick="window.location='ueaahome.php'" />
+<font class="uetext">University of the East</font>
 </td></div>
 
 <td>
@@ -56,13 +57,20 @@ echo "The time is " . date("h:i:sa");
 <input type="button" name="aboutbtn" class="navtabs" id="about" value="About UEAA" onclick="window.location='ueaaabout.php'"/>
 
 </td>
+
+<td>
+<input type="button" name="writebtn" class="navtabs" id="write" value="Share" onclick="window.location='writeform.php'"/>
+</td>
 </div>
 </td>
 </div>
 <div class="sidefield">
-
-</div>
-<div class="walls" id="homewall" ><br>
+<td>
+<!--<font class="usernamesession"><a class="usersession" href="writeform.php"> </a></font><br><br> -->
+<input type="button" class="sideBtn" onclick="window.location='logout.php'" value="Log Out" />
+<input type="button" class="btnicon" onclick="window.location='logout.php'" style="background-image: url('logout.png');background-size: cover;" /><br><br><br><br>
+<input type="button" class="sideBtn" onclick="window.location='ueaaevents.php'" value="Events" />
+</td>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="description" content="Made with WOW Slider - Create beautiful, responsive image sliders in a few clicks. Awesome skins and animations. Http://wowslider.com/" />
 	
@@ -92,7 +100,10 @@ echo "The time is " . date("h:i:sa");
 	<script type="text/javascript" src="engine1E/wowslider.js"></script>
 	<script type="text/javascript" src="engine1E/script.js"></script>
 	<!-- End WOWSlider.com BODY section -->
-	 <div class="photogallery">
+</div>
+<div class="walls" id="homewall" ><br>
+
+	<!-- <div class="photogallery">
     	<div class="row">
 	       <?php 
 	       	//scan "uploads" folder and display them accordingly
@@ -105,7 +116,7 @@ echo "The time is " . date("h:i:sa");
 	       		echo '
 	       		<div class="col-md-3">
 		       		<div class="thumbnail" id="images">
-			       		<img src="'.$folder . '/' . $result.'" alt="...">
+			       		<img class="imagedimension" src="'.$folder . '/' . $result.'" alt="...">
 				       		<div class="caption">
 				       		<p><a href="remove.php?name='.$result.'" class="btn btn-danger btn-xs" role="button">Remove</a></p>
 			       		</div>
@@ -116,11 +127,40 @@ echo "The time is " . date("h:i:sa");
 	       ?>
     	</div>
 		 </div> <!-- /container -->
-	
-<div id="imageviewer" >
-<img class="images" id="sketchA" src="almirasketch.jpg" />
-</div><br><br>
 
+		 <div class="photogallery">
+		 <?php
+$mysqli = new mysqli( 'localhost', 'root', '', 'ueartistamem' );
+$sql = "SELECT * FROM images_tbl WHERE image_category='Sketching' AND image_status='Approved'";
+$result = $mysqli->query($sql);
+echo "<table>";
+while($row=mysqli_fetch_array($result))
+{
+	echo "<tr>";
+	echo "<td>";?> <img src="<?php echo $row["images_path"]; ?>" class="imagedimension" height="100" width="100"> <?php echo "</td>";
+	echo "</tr>";
+	echo "<tr>";
+								echo "<td>";?> <font class="imagecaption" id="imagecaptiontitle"><?php echo $row["title"]; echo "</td>";
+								echo "</tr>";
+								echo "<tr>";
+								echo "<td>";?><font class="imagecaption" ><?php echo " by " . $row["artists"]; echo "</td>";
+								echo "</tr>";
+								echo "<tr>";
+								echo "<td>";?> <font class="announcementB" id="datetime" style="color:snow;"><?php echo $row["submission_date"] . " at " . $row["submission_time"]; echo "</td>";
+								echo "</tr>"; 
+								echo "<tr>";
+								echo "<td>";?><hr class="postlines" /><?php echo "</td>";
+								echo "</tr>";	
+								echo "<tr>";
+								echo "<td>";?><br><?php
+								echo "</tr>";
+}
+echo "</table>";
+?>
+		 </div>
+		 
+<div class="space">
+	</div>
 </div>
 <div id="footerA">
 <hr class="hrline" /><td>

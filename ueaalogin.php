@@ -1,9 +1,10 @@
 <?php
 /*** begin our session ***/
-session_start();
+
+        session_start();
 
 /*** first check that both the username, password and form token have been sent ***/
-if(!isset( $_POST['uname_mem'], $_POST['pword_mem']))
+if(!isset( $_POST['uname_mem'], $_POST['pword_mem']))/*** , $_SESSION['sn_mem']***/
 {
     $message = 'Please enter a valid username and password!';
 }
@@ -32,10 +33,11 @@ elseif (ctype_alnum($_POST['pword_mem']) != true)
 }
 else
 {
+
     /*** if we are here the data is valid and we can insert it into database ***/
     $uname_mem = filter_var($_POST['uname_mem'], FILTER_SANITIZE_STRING);
     $pword_mem = filter_var($_POST['pword_mem'], FILTER_SANITIZE_STRING);
-
+   /*** $student_num = filter_var($_SESSION['sn_mem'], FILTER_SANITIZE_STRING);***/
     /*** now we can encrypt the password ***/
     $pword_mem = sha1( $pword_mem );
     
@@ -59,14 +61,14 @@ else
 
         /*** set the error mode to excptions ***/
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+		
         /*** prepare the insert ***/
-        $stmt = $dbh->prepare("INSERT INTO logindetails (uname_mem, pword_mem ) VALUES (:uname_mem, :pword_mem )");
+        $stmt = $dbh->prepare("INSERT INTO phpro_users (phpro_username, phpro_password) VALUES (:uname_mem, :pword_mem)");
 
         /*** bind the parameters ***/
         $stmt->bindParam(':uname_mem', $uname_mem, PDO::PARAM_STR);
         $stmt->bindParam(':pword_mem', $pword_mem, PDO::PARAM_STR, 30);
-
+      /***  $stmt->bindParam(':student_num', $student_num, PDO::PARAM_STR);***/
         /*** execute the prepared statement ***/
         $stmt->execute();
 
@@ -92,7 +94,6 @@ else
 }
 ?>
 
-?>
 
 <!DOCTYPE html>
 <html>
@@ -114,11 +115,6 @@ else
 echo "The time is " . date("h:i:sa");
 ?></font>
 </div>
-<div>
-<video class="videoAB" autoplay muted loop>
-  <source src="UEaavidA.mp4" type="video/mp4">
-</video>
-</div>
 
 <form action="" method="post">
 <fieldset style="" class="signupfield">
@@ -130,10 +126,10 @@ echo "The time is " . date("h:i:sa");
  <font class="text" >Username: </font>
   <input type="text" class="inputtextfield" name="uname_mem" required></tr><br><br>
   <font class="text" >Password: </font>
-  <input type="password" class="inputtextfield" name="pword_mem" required></tr><br><br><br><br>
+  <input type="text" class="inputtextfield" name="pword_mem" required></tr><br><br><br><br>
 
 <font class="loginmessage"><p><?php echo $message; ?></font>
-
+ <input type="submit" id="submitlogindetails" class="submitbutton" value="Submit"  >
  <input type="submit" id="welcomeagain" class="submitbutton" value="Proceed" onclick="window.location='ueaawelcome.php'" >
  </div>
 </table>

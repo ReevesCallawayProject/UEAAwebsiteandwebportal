@@ -14,7 +14,7 @@ if(isset($_POST['phpro_username']))
   <link rel="shortcut icon" href="webicon.png">
   <link href="welcomecss.css" rel="stylesheet">
 </head>
-<body style="background-image:url('automnleaf.jpg');background-size:cover;">
+<body style="background-color:snow;">
 	<form action="adminloginconfirm.php" method="post">
 	<div class="datetimeA">
 	<font class="dateA" >
@@ -29,9 +29,7 @@ echo "The time is " . date("h:i:sa");
 ?></font>
 </div>
 <div>
-<video class="videoABC" autoplay muted loop>
-  <source src="UEaavidA.mp4" type="video/mp4">
-</video>
+
 </div>
 
 	

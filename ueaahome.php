@@ -1,6 +1,6 @@
 <?php
-// Start the session
-session_start();
+        session_start();
+       
 ?>
 
 <!DOCTYPE html>
@@ -10,24 +10,24 @@ session_start();
     <link rel="shortcut icon" href="webicon.png">
   <link href="welcomecss.css" rel="stylesheet">
 </head>
-<body style="background-image:url('automnleaf.jpg');background-size:cover;">
-<div class="datetime">
+<body style="background-color:snow;">
+<div class="divs" id="navstrip" >
+<td class="datetime">
 	<font class="dateA" >
 	<?php
 	echo "Today is " . date("Y-m-d") . "<br>";
 ?></font>
-</div>
-<div>
+</td>
+<td>
 	<font class="time" >
 	<?php
 echo "The time is " . date("h:i:sa");
 ?></font>
-</div>
-<div>
+</td>
 <td>
-<img src="logo.jpg"alt="images"  style="width:160px;height:160px;position:relative;z-index:1;" id="homelogo" class="logo" >
-</td></div>
-<div class="divs" id="navstrip" >
+	<input type="button" class="logotab" name="homebtnlogo" id="homelogo" value="UE Artista" onclick="window.location='ueaahome.php'" />
+<font class="uetext">University of the East</font>
+</td>
 <td>
 <input type="button" class="navtabs" name="homebtnA" id="home" value="Home" onclick="window.location='ueaahome.php'" />
 </td>
@@ -55,15 +55,43 @@ echo "The time is " . date("h:i:sa");
 <input type="button" name="aboutbtn" class="navtabs" id="about" value="About UEAA" onclick="window.location='ueaaabout.php'"/>
 </td>
 <td>
-<input type="button" name="portalbtn" class="navtabs" id="portal" value="UEAA Portal" onclick="window.location='membershome.php'"/>
+<input type="button" name="writebtn" class="navtabs" id="write" value="Share" onclick="window.location='writeform.php'"/>
 </td>
+
 </div>
-</td>
+<hr class="snowlinemain" />
 
 <div class="sidefield">
-
-</div>
-<div class="walls" id="homewall" ><br>
+	<td>
+		<!--<font class="usernamesession"><a class="usersession" href="writeform.php"> </a></font><br><br> -->
+		<input type="button" class="sideBtn" onclick="window.location='logout.php'" value="Log Out" />
+		<input type="button" class="btnicon" onclick="window.location='logout.php'" style="background-image: url('logout.png');background-size: cover;" /><br><br><br><br>
+		<input type="button" class="sideBtn" onclick="window.location='ueaaevents.php'" value="Events" id="eventsBtn"/><br><br><br>
+		<!--<input type="button" class="sideBtn" onclick="window.location='ueaaevents.php'" value="Search"id="searchBtn"/><br><br>-->
+	</td>
+	<td>
+		<table>
+			<tr>
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+				<script> 
+				$(document).ready(function(){
+					$("#searchflip").click(function(){
+					$("#searchpanel").slideToggle("slow");
+					});
+				});
+				</script>
+					<div id="searchflip">Search</div>
+						<div id="searchpanel">
+						<form  method="get" action="ueaasearchresult.php"  id="searchform">
+							<input type="text" id="searchinput" name="search"/>
+							<input type="submit" class="sideBtn" name="searchsubmit" onclick="window.location='ueaasearchresult.php'" value="Search" id="searchBtn"/>
+						</form>
+						</div>
+					</td>
+			</tr>
+		</table>
+	</td>
+<td>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="description" content="Made with WOW Slider - Create beautiful, responsive image sliders in a few clicks. Awesome skins and animations. Wowslider" />
 	
@@ -73,7 +101,7 @@ echo "The time is " . date("h:i:sa");
 	<!-- End WOWSlider.com HEAD section -->
 
 </head>
-<body style="background-color:#d7d7d7;margin:auto">
+<body style="background-color:#d7d7d7;margin-top:20px;">
 	
 	<!-- Start WOWSlider.com BODY section --> <!-- add to the <body> of your page -->
 	<div id="wowslider-container1">
@@ -93,8 +121,73 @@ echo "The time is " . date("h:i:sa");
 	<script type="text/javascript" src="engine1/wowslider.js"></script>
 	<script type="text/javascript" src="engine1/script.js"></script>
 	<!-- End WOWSlider.com BODY section -->
-
+</td></div>
+<div class="walls" id="homewall" ><br>
+	
+				<div class="photogalleryhome" >
+					<?php
+						$mysqli = new mysqli( 'localhost', 'root', '', 'ueartistamem' );
+						$sql = "SELECT * FROM images_tbl WHERE image_status='Approved' ORDER BY images_id DESC";
+						$result = $mysqli->query($sql);
+						echo "<table>";
+						while($row=mysqli_fetch_array($result))
+							{
+								echo "<tr>";
+								echo "<td>";?><font class="imagecaption" id="notiftext" >Admin has uploaded a new artwork to <?php echo $row["image_category"];?> Gallery submitted by <font color="red"><?php echo $row["artists"];?></font>.<?php echo "</td>";?></font><?php
+								echo "<tr>";
+								echo "<td>";?><img src="<?php echo $row["images_path"]; ?>" class="imagedimensionhome" height="100" width="100"> <?php echo "</td>";
+								echo "</tr>";
+								echo "<tr>";
+								echo "<td>";?> <font class="imagecaption" id="imagecaptiontitle"><?php echo $row["title"]; echo "</td>";
+								echo "</tr>";
+								echo "<tr>";
+								echo "<td>";?><font class="imagecaption" ><?php echo " by " . $row["artists"]; echo "</td>";
+								echo "</tr>";
+								echo "<tr>";
+								echo "<td>";?> <font class="announcementB" id="datetime" style="color:snow;"><?php echo $row["submission_date"] . " at " . $row["submission_time"]; echo "</td>";
+								echo "</tr>"; 
+								echo "<tr>";
+								echo "<td>";?><hr class="postlines" /><?php echo "</td>";
+								echo "</tr>";	
+								echo "<tr>";
+								echo "<td>";?><br><?php
+								echo "</tr>";
+							}
+						echo "</table>";
+					?>
+				</div>
+			
+				<div class="eventsfeed">
+					<?php
+						$mysqli = new mysqli( 'localhost', 'root', '', 'ueartistaadmin' );
+						$sql = "SELECT * FROM ueaaeventspost ORDER BY id DESC";
+						$result = $mysqli->query($sql);
+						echo "<table>";
+						while($row=mysqli_fetch_array($result))
+							{
+								echo "<tr>";
+								echo "<td>";?><font class="announcementA" >ArtistAlert!<?php echo "</td>";?></font><?php
+								echo "</tr>";
+								echo "<tr>";
+								echo "<td>";?><br><?php echo "</td>";
+								echo "</tr>";
+								echo "<tr>";
+								echo "<td>";?><font class="announcementB" ><?php echo $row["events_content"]; ?></font>  <?php echo "</td>";
+								echo "</tr>";	
+								echo "<tr>";
+								echo "<td>";?> <font class="announcementB" id="datetime"><?php echo $row["date_posted"] . " at " . $row["time_posted"]; echo "</td>";
+								echo "</tr>"; 
+								echo "<tr>";
+								echo "<td>";?><hr class="postlines" /><?php echo "</td>";
+								echo "</tr>";	
+								
+							}
+						echo "</table>";
+					?>
+				</div>
+			
 </div>
+
 <div id="footerA">
 <hr class="hrline" />
 <td>

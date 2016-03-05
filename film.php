@@ -9,7 +9,7 @@ session_start();
     <link rel="shortcut icon" href="webicon.png">
   <link href="welcomecss.css" rel="stylesheet">
 </head>
-<body style="background-image:url('automnleaf.jpg');background-size:cover;">
+<body style="background-color:snow;">
 <div class="divs" id="navstrip" >
 <div class="datetime">
 	<font class="dateA" >
@@ -25,7 +25,8 @@ echo "The time is " . date("h:i:sa");
 </div>
 <div>
 <td>
-<input type="button" class="logotab" name="homebtnlogo" id="homelogo" value="UE ARTISTA" onclick="window.location='ueaahome.php'" />
+<input type="button" class="logotab" name="homebtnlogo" id="homelogo" value="UE Artista" onclick="window.location='ueaahome.php'" />
+<font class="uetext">University of the East</font>
 </td></div>
 
 <td>
@@ -54,10 +55,20 @@ echo "The time is " . date("h:i:sa");
 <input type="button" name="aboutbtn" class="navtabs" id="about" value="About UEAA" onclick="window.location='ueaaabout.php'"/>
 
 </td>
+
+<td>
+<input type="button" name="writebtn" class="navtabs" id="write" value="Share" onclick="window.location='writeform.php'"/>
+</td>
 </div>
 </td>
 </div>
 <div class="sidefield">
+<td>
+<!--<font class="usernamesession"><a class="usersession" href="writeform.php"> </a></font><br><br> -->
+<input type="button" class="sideBtn" onclick="window.location='logout.php'" value="Log Out" />
+<input type="button" class="btnicon" onclick="window.location='logout.php'" style="background-image: url('logout.png');background-size: cover;" /><br><br><br><br>
+<input type="button" class="sideBtn" onclick="window.location='ueaaevents.php'" value="Events" />
+</td>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="description" content="Made with WOW Slider - Create beautiful, responsive image sliders in a few clicks. Awesome skins and animations. Wowslider" />
 	

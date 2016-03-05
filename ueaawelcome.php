@@ -14,23 +14,13 @@ if(isset($_POST['phpro_username']))
   <link rel="shortcut icon" href="webicon.png">
   <link href="welcomecss.css" rel="stylesheet">
 </head>
-<body style="background-color:#202020;">
+<body style="background-color:black;">
 	<form action="login_submit.php" method="post">
-	<div>
-	<font class="date" >
-	<?php
-	echo "Today is " . date("Y-m-d") . "<br>";
-?></font>
-</div>
-<div>
-	<font class="time" >
-	<?php
-echo "The time is " . date("h:i:sa");
-?></font>
-</div>
+	
 		<div class="divs" id="photostrip" >
 			<td>
-			<img src= "logo.jpg" alt="images"  style="width:160px;height:160px;position:absolute;z-index:10;" id="welcomelogo" class="logo" />
+			<input type="button" class="logotab" name="homebtnlogo" id="homelogo" value="UE Artista" onclick="window.location='ueaahome.php'" />
+<font class="uetext">University of the East</font>
 			</td>
 			<td>
 			<div class="slideshow" >
@@ -138,34 +128,23 @@ $(function(){
 </div></td>
 </body>
 </div></td>
-<td><div class="slideshow" >
-<style>
-.fadeinE { 
-position:relative; height:332px; width:500px; margin:0 auto;
-background: url("slideshow-bg.png") repeat-x scroll left top transparent;
-padding: 10px;
- }
-.fadeinE img { position:absolute; left:10px; top:10px; }
-</style>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script>
-$(function(){
-	$('.fadeinE img:gt(0)').hide();
-	setInterval(function(){$('.fadeinE :first-child').fadeOut().next('img').fadeIn().end().appendTo('.fadeinE');}, 6000);
-});
-</script>
-<body>
 <td>
-<div class="fadeinE" >
-<img class="imageslideshowE" src="artworkC.jpg">
-<img class="imageslideshowE" src="artworkB.jpg">
-<img class="imageslideshowE" src="artworkA.jpg">
-</div></td>
-</body>
-</div></td>
-
 <div>
-<img src="welcomewallpaper.jpg" class="wallpaper" id="welcomewallpaper" >
+	<font class="date" >
+	<?php
+	echo "Today is " . date("Y-m-d") . "<br>";
+?></font>
+</div>
+<div>
+	<font class="time" >
+	<?php
+echo "The time is " . date("h:i:sa");
+?></font>
+</div>
+</td>
+<hr class="snowline" />
+<div>
+<img src="theartist.jpg" class="wallpaper" id="welcomewallpaper" >
 <div class="divs" id="unamepcode" >
 <td>
 

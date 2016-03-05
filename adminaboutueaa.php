@@ -30,35 +30,16 @@ echo "The time is " . date("h:i:sa");
 </td></div>
 
 <td>
-<input type="button" class="navtabs" name="homebtn" id="home" value="Home" onclick="window.location='ueaahome.php'" />
+<input type="button" class="navtabs" name="homebtn" id="home" value="Home" onclick="window.location='adminhome.php'" />
 </td>
 <td>
-<div class="dropdown">
-    <!-- trigger button -->
-    <button class="navtabs" id="gallery" name="gallerybtn" value="Gallery">Gallery </button>
-    <!-- dropdown menu -->
-    <ul class="dropdown-menu">
-	    <li><a href="crafting.php">Crafting</a></li>
-	    <li><a href="film.php">Film</a></li>
-        <li><a href="digitalart.php">Digital Art</a></li>
-	    <li><a href="literary.php">Literary</a></li>
-        <li><a href="music.php">Music</a></li>
-		<li><a href="painting.php">Painting</a></li>
-        <li><a href="photography.php">Photography</a></li>
-		<li><a href="sketching.php">Sketching</a></li>
-    </ul>
-</div>
+<input type="button" class="navtabs" name="gallerybtn" id="adminupload" value="Gallery" onclick="window.location='admingallery.php'" />
 </td>
 <td>
-<input type="button" name="officersbtn" class="navtabs" id="officers" value="Officers" onclick="window.location='ueaaofficers.php'"/>
+<input type="button" name="officersbtn" class="navtabs" id="officers" value="Officers" onclick="window.location='adminofficers.php'"/>
 </td>
 <td>
-<input type="button" name="aboutbtn" class="navtabs" id="about" value="About UEAA" onclick="window.location='ueaaabout.php'"/>
-
-</td>
-
-<td>
-<input type="button" name="writebtn" class="navtabs" id="write" value="Profile" onclick="window.location='writeform.php'"/>
+<input type="button" name="aboutbtn" class="navtabs" id="about" value="About UEAA" onclick="window.location='adminaboutueaa.php'"/>
 </td>
 </div>
 </td>
@@ -68,9 +49,9 @@ echo "The time is " . date("h:i:sa");
 <!--<font class="usernamesession"><a class="usersession" href="writeform.php"> </a></font><br><br> -->
 <input type="button" class="sideBtn" onclick="window.location='logout.php'" value="Log Out" />
 <input type="button" class="btnicon" onclick="window.location='logout.php'" style="background-image: url('logout.png');background-size: cover;" /><br><br><br><br>
-<input type="button" class="sideBtn" onclick="window.location='ueaaevents.php'" value="Events" />
+<input type="button" class="sideBtn" onclick="window.location='admincreateevents.php'" value="Events" />
 </td>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="description" content="Made with WOW Slider - Create beautiful, responsive image sliders in a few clicks. Awesome skins and animations. Wowslider" />
 	
 	<!-- Start WOWSlider.com HEAD section --> <!-- add to the <head> of your page -->
@@ -102,66 +83,51 @@ echo "The time is " . date("h:i:sa");
 	<!-- End WOWSlider.com BODY section -->
 
 </div>
-<div class="walls" id="homewall" >
-<!-- <div class="photogallery">
 
-    	<div class="row">
-	       <?php 
-	       	//scan "uploads" folder and display them accordingly
-	       $folder = "crafting";
-	       $results = scandir('crafting');
-	       foreach ($results as $result) {
-	       	if ($result === '.' or $result === '..') continue;
-	       
-	       	if (is_file($folder . '/' . $result)) {
-	       		echo '
-	       		<div class="col-md-3">
-		       		<div class="thumbnail" id="images">
-			       		<img class="imagedimension" src="'.$folder . '/' . $result.'" alt="...">
-				       		<div class="caption">
-				       		<p><a href="remove.php?name='.$result.'" class="btn btn-danger btn-xs" role="button">Remove</a></p>
-			       		</div>
-		       		</div>
-	       		</div>';
-	       	}
-	       }
-	       ?>
-    	</div>
-		 </div> -->
-		 
-		 <div class="photogallery">
-		 <?php
-$mysqli = new mysqli( 'localhost', 'root', '', 'ueartistamem' );
-$sql = "SELECT * FROM images_tbl WHERE image_category='Crafting' AND image_status='Approved'";
-$result = $mysqli->query($sql);
-echo "<table>";
-while($row=mysqli_fetch_array($result))
-{
-	echo "<tr>";
-	echo "<td>";?> <img src="<?php echo $row["images_path"]; ?>" class="imagedimension" height="100" width="100"> <?php echo "</td>";
-	echo "</tr>";
-	echo "<tr>";
-								echo "<td>";?> <font class="imagecaption" id="imagecaptiontitle"><?php echo $row["title"]; echo "</td>";
-								echo "</tr>";
-								echo "<tr>";
-								echo "<td>";?><font class="imagecaption" ><?php echo " by " . $row["artists"]; echo "</td>";
-								echo "</tr>";
-								echo "<tr>";
-								echo "<td>";?> <font class="announcementB" id="datetime" style="color:snow;"><?php echo $row["submission_date"] . " at " . $row["submission_time"]; echo "</td>";
-								echo "</tr>"; 
-								echo "<tr>";
-								echo "<td>";?><hr class="postlines" /><?php echo "</td>";
-								echo "</tr>";	
-								echo "<tr>";
-								echo "<td>";?><br><?php
-								echo "</tr>";
-}
-echo "</table>";
-?>
-		 </div>
-		 
-		 <div class="space">
-	</div>
+<div class="walls" id="homewall" >
+<table>
+<hr id="hrlineaboutA" />
+<tr><td>
+<font class="orginfotextA" id="foundation" >Foundation</font>
+</td><td>
+<font class="orginfotextB" id="founded" >16 November 2011</font>
+</td></tr>
+<hr id="hrlineaboutB" />
+<tr>
+<td>
+<font class="orginfotextA" id="address" >Address</font></td>
+<td>
+<font class="orginfotextB" id="ue" >University of the East - Manila</font>
+</td></tr>
+<hr id="hrlineaboutC" />
+<tr><td>
+<font class="orginfotextA" id="descriptionA" >Description</font></td>
+<td >
+<font class="orginfotextB" id="descriptionB" >UE-Artists Alliance (ArtistA) is the </font>
+<br><font class="orginfotextB" id="descriptionC">official organization of visual</font>
+<br><font class="orginfotextB" id="descriptionD"> artists and literary writers in the </font>
+<br><font class="orginfotextB" id="descriptionE">University of the East.</font>
+</td></tr>
+<hr id="hrlineaboutD" />
+<tr><td>
+<font class="orginfotextA" id="mission" >Mission Statement</font></td>
+<td >
+<i><font class="orginfotextB" id="statementA" >The University of the East Artist's</font>
+<br><font class="orginfotextB" id="statementB">Alliance aims to develop the student's</font>
+<br><font class="orginfotextB" id="statementC">skills in producing creative works</font><br>
+<font class="orginfotextB" id="statementD">which adheres for the University's</font><br>
+<font class="orginfotextB" id="statementE">mission of molding individuals who excel</font><br>
+<font class="orginfotextB" id="statementF">not only as global leaders but also</font><br>
+<font class="orginfotextB" id="statementG">exceptional artists of the next generation.</font></i>
+</td></tr>
+<hr id="hrlineaboutE" />
+<tr><td>
+<font class="orginfotextA" id="email" >E-mail</font></td>
+<td >
+<font class="orginfotextB" id="gmail" >ueartistsalliance16@gmail.com</font>
+</td></tr>
+<hr id="hrlineaboutF" />
+</table>
 </div>
 <div id="footerA">
 <hr class="hrline" /><td>

@@ -15,7 +15,7 @@ session_start();
     <!-- Bootstrap core CSS -->
     
 </head>
-<body style="background-image:url('automnleaf.jpg');background-size:cover;">
+<body style="background-color:snow;">
 
 
 <div class="divs" id="navstrip" >
@@ -35,31 +35,17 @@ echo "The time is " . date("h:i:sa");
 	<input type="button" class="logotab" name="homebtnlogo" id="homelogo" value="UE ARTISTA" onclick="window.location='ueaahome.php'" />
 </td>
 <td>
-<input type="button" class="navtabs" name="homebtnA" id="adminhome" value="Home" onclick="window.location='ueaahome.php'" />
+<input type="button" class="navtabs" name="homebtnA" id="adminhome" value="Home" onclick="window.location='adminhome.php'" />
 </td>
 
 <td>
-<div class="dropdown">
-    <!-- trigger button -->
-    <button class="navtabs" id="gallery" value="Gallery">Gallery </button>
-    <!-- dropdown menu -->
-    <ul class="dropdown-menu">
-	    <li><a href="crafting.php">Crafting</a></li>
-	    <li><a href="film.php">Film</a></li>
-        <li><a href="digitalart.php">Digital Art</a></li>
-	    <li><a href="literary.php">Literary</a></li>
-        <li><a href="music.php">Music</a></li>
-		<li><a href="painting.php">Painting</a></li>
-        <li><a href="photography.php">Photography</a></li>
-		<li><a href="sketching.php">Sketching</a></li>
-    </ul>
-</div>
+<input type="button" class="navtabs" name="gallerybtn" id="adminupload" value="Gallery" onclick="window.location='admingallery.php'" />
 </td>
 <td>
-<input type="button" name="officersbtn" class="navtabs" id="officers" value="Officers" onclick="window.location='ueaafficers.php'"/>
+<input type="button" name="officersbtn" class="navtabs" id="officers" value="Officers" onclick="window.location='adminofficers.php'"/>
 </td>
 <td>
-<input type="button" name="aboutbtn" class="navtabs" id="about" value="About UEAA" onclick="window.location='ueaaabout.php'"/>
+<input type="button" name="aboutbtn" class="navtabs" id="about" value="About UEAA" onclick="window.location='adminaboutueaa.php'"/>
 </td>
 </div>
 </td>
@@ -69,7 +55,7 @@ echo "The time is " . date("h:i:sa");
 		<!--<font class="usernamesession"><a class="usersession" href="writeform.php"> </a></font><br><br> -->
 		<input type="button" class="sideBtn" onclick="window.location='logout.php'" value="Log Out" />
 		<input type="button" class="btnicon" onclick="window.location='logout.php'" style="background-image: url('logout.png');background-size: cover;" /><br><br><br><br>
-		<input type="button" class="sideBtn" onclick="window.location='ueaaevents.php'" value="Events" />
+		<input type="button" class="sideBtn" onclick="window.location='admincreateevents.php'" value="Events" />
 <td>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="description" content="Made with WOW Slider - Create beautiful, responsive image sliders in a few clicks. Awesome skins and animations. Wowslider" />
@@ -109,7 +95,7 @@ echo "The time is " . date("h:i:sa");
 	<meta name="description" content="Made with WOW Slider - Create beautiful, responsive image sliders in a few clicks. Awesome skins and animations. Wowslider" />
 
 <!-- upload for crafting -->
-<form action="sharecrafting.php" enctype="multipart/form-data" method="post" class="uploaderform">
+<form action="saveimagecrafting.php" enctype="multipart/form-data" method="post" class="uploaderform">
 <table style="border-collapse: collapse; font: 12px Tahoma;" class="uploadform" border="1" cellspacing="5" cellpadding="5">
 <tbody><tr>
 <td>
@@ -126,7 +112,7 @@ echo "The time is " . date("h:i:sa");
 </form>
 
 <!-- upload for digital art -->
-<form action="sharedigitalart.php" enctype="multipart/form-data" method="post" class="uploaderform">
+<form action="saveimage.php" enctype="multipart/form-data" method="post" class="uploaderform">
 <table style="border-collapse: collapse; font: 12px Tahoma;" class="uploadform" border="1" cellspacing="5" cellpadding="5">
 <tbody><tr>
 <td>
@@ -144,7 +130,7 @@ echo "The time is " . date("h:i:sa");
 </form>
 
 <!-- upload for painting -->
-<form action="sharepainting.php" enctype="multipart/form-data" method="post" class="uploaderform">
+<form action="saveimagepainting.php" enctype="multipart/form-data" method="post" class="uploaderform">
 <table style="border-collapse: collapse; font: 12px Tahoma;" class="uploadform" border="1" cellspacing="5" cellpadding="5">
 <tbody><tr>
 <td>
@@ -162,7 +148,7 @@ echo "The time is " . date("h:i:sa");
 </form>
 
 <!-- upload for photography -->
-<form action="sharephotography.php" enctype="multipart/form-data" method="post" class="uploaderform">
+<form action="saveimagephotography.php" enctype="multipart/form-data" method="post" class="uploaderform">
 <table style="border-collapse: collapse; font: 12px Tahoma;" class="uploadform" border="1" cellspacing="5" cellpadding="5">
 <tbody><tr>
 <td>
@@ -179,7 +165,7 @@ echo "The time is " . date("h:i:sa");
 </form>
 
 <!-- upload for sketching -->
-<form action="sharesketching.php" enctype="multipart/form-data" method="post" class="uploaderform">
+<form action="saveimagesketching.php" enctype="multipart/form-data" method="post" class="uploaderform">
 <table style="border-collapse: collapse; font: 12px Tahoma;" class="uploadform" border="1" cellspacing="5" cellpadding="5">
 <tbody><tr>
 <td>
